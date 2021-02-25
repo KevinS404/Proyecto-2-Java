@@ -69,10 +69,6 @@ public class Register {
             //agregamos al usuario a la lista con una reputacion inicial de 500 puntos
             stackPrincipal.agregarUsuario(nombreRegistro, contrasenaRegistro, 500);
         }
-        //si el usuario existiera le indicaremos esto al usuario por pantalla
-        //y le daremos la opcion de registrarse o de iniciar sesion
-        else if(verificador == 0) {
-        }
         return verificador;
     }
 

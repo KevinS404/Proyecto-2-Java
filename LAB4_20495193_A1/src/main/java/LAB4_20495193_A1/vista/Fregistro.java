@@ -7,23 +7,47 @@ package LAB4_20495193_A1.vista;
 
 import LAB4_20495193_A1.controlador.Register;
 import LAB4_20495193_A1.modelo.Stack;
-import LAB4_20495193_A1.modelo.Usuario;
 import java.util.ArrayList;
-import javax.swing.JLabel;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /**
  *
  * @author Admin
  */
 public class Fregistro extends javax.swing.JFrame {
-
+    Stack stack;
     /**
      * Creates new form REGISTRO
      */
-    public Fregistro() {
+    public Fregistro(Stack stackPrincipal) {
+        this.stack = stackPrincipal;
         initComponents();
     }
+
+    private Fregistro() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public Stack getStack() {
+        return stack;
+    }
+
+    public void setStack(Stack stack) {
+        this.stack = stack;
+    }
+
+    public JTextField getVarContrasena() {
+        return varContrasena;
+    }
+
+    public void setVarContrasena(JTextField varContrasena) {
+        this.varContrasena = varContrasena;
+    }
+    
+
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -97,60 +121,20 @@ public class Fregistro extends javax.swing.JFrame {
         // TODO add your handling code here:
         String nombre = varNombre.getText();
         String contrasena = varContrasena.getText();
-        //primero se incluyen todas las estructuras de ejemplo solicitadas
-        //1 stack inicial
-        Stack stackPrincipal = new Stack();
-        //4 usuarios registrados de ejemplo
-        stackPrincipal.agregarUsuario("usuario1", "contrasena1",500);
-        stackPrincipal.agregarUsuario("usuario2", "contrasena2",200);
-        stackPrincipal.agregarUsuario("usuario3", "contrasena3",10);
-        stackPrincipal.agregarUsuario("usuario4", "contrasena4",27);
-        //4 etiquetas de ejemplo
-        stackPrincipal.agregarEtiqueta("java","lenguaje orientado a objetos");
-        stackPrincipal.agregarEtiqueta("prolog","lenguaje de paradigma logico");
-        stackPrincipal.agregarEtiqueta("scheme","lenguaje de paradigma funcional");
-        stackPrincipal.agregarEtiqueta("c++","lenguaje orientado a objetos");
-        //auxiliares para generar 5 preguntas con sus etiquetas respectivas
-        ArrayList<String> etiqueta1 = new ArrayList<>();
-        etiqueta1.add("java");
-        ArrayList<String> etiqueta2 = new ArrayList<>();
-        etiqueta1.add("prolog");
-        ArrayList<String> etiqueta3 = new ArrayList<>();
-        etiqueta1.add("scheme");
-        ArrayList<String> etiqueta4 = new ArrayList<>();
-        etiqueta1.add("c++");
-        //5 preguntas de ejemplo
-        
-        stackPrincipal.agregarPregunta(1,2,etiqueta1, "titulo1", "contenido1" , "fechaDePublicacion1", "usuario1", "cerrada", 0);
-        stackPrincipal.agregarPregunta(2,0,etiqueta2, "titulo2", "contenido2" , "fechaDePublicacion2", "usuario2", "abierta", 15);
-        stackPrincipal.agregarPregunta(3,5,etiqueta3, "titulo3", "contenido3" , "fechaDePublicacion3", "usuario3", "cerrada", 0);
-        stackPrincipal.agregarPregunta(4,1,etiqueta1, "titulo4", "contenido4" , "fechaDePublicacion4", "usuario4", "abierta", 0);
-        stackPrincipal.agregarPregunta(5,6,etiqueta4, "titulo5", "contenido5" , "fechaDePublicacion4", "usuario1", "cerrada", 0);
-
-        //10 respuestas de ejemplo
-        stackPrincipal.agregarRespuesta(1,1, "usuario1", "27/07/2020", "contenido1");
-        stackPrincipal.agregarRespuesta(2,2, "usuario1", "07/01/2021", "contenido2");
-        stackPrincipal.agregarRespuesta(3,1, "usuario2", "10/07/2020", "contenido3");
-        stackPrincipal.agregarRespuesta(2,1, "usuario2", "27/03/2020", "contenido4");
-        stackPrincipal.agregarRespuesta(1,2, "usuario2", "02/01/2021", "contenido5");
-        stackPrincipal.agregarRespuesta(3,2, "usuario3", "30/11/2020", "contenido6");
-        stackPrincipal.agregarRespuesta(2,3, "usuario3", "20/09/2020", "contenido7");
-        stackPrincipal.agregarRespuesta(2,4, "usuario3", "12/12/2020", "contenido8");
-        stackPrincipal.agregarRespuesta(4,5, "usuario4", "06/07/2020", "contenido9");
-        stackPrincipal.agregarRespuesta(5,5, "usuario4", "15/01/2020", "contenido10");
+        Stack stackPrincipal = getStack();
         Register user = new Register(nombre,contrasena);
         int ver = user.register(stackPrincipal, user);
         //Registrado
         if(ver == 1){
+            dispose();
             JOptionPane.showMessageDialog(null, "Registro exitoso");
-            new MainMenu().setVisible(true);
 
         }
         //Usuario ya existe
         else if(ver == 0){
+            dispose();
             JOptionPane.showMessageDialog(null, "Lo sentimos,este usuario ya se encuentra registrado");
-            //new MainMenu().setVisible(true);
-           
+
         }
     }//GEN-LAST:event_JBregistroActionPerformed
 
@@ -228,7 +212,7 @@ public class Fregistro extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Fregistro().setVisible(true);
+            new Fregistro().setVisible(true);
             }
         });
     }
