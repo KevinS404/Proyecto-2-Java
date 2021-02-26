@@ -151,7 +151,7 @@ public class Pregunta {
             opcion = aux.nextInt();
             if(opcion == 1){
                 System.out.println(stack.getEtiquetas());
-                System.out.println("\nEscriba el nombresu eleccion: ");
+                System.out.println("\nEscriba el nombre de su eleccion: ");
                 Scanner aux3 = new Scanner(System.in);
                 etiqueta = aux3.nextLine();
                 etiquetaP.add(etiqueta);

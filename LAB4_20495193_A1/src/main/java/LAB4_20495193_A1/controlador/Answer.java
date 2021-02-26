@@ -16,6 +16,61 @@ import java.util.Scanner;
  */
 
 public class Answer {
+    private int idPregunta;
+    private int idRespuesta;
+    private String autor;
+    private String fecha;
+    private String contenido;
+
+    public Answer(int idPregunta, int idRespuesta, String autor, String fecha, String contenido) {
+        this.idPregunta = idPregunta;
+        this.idRespuesta = idRespuesta;
+        this.autor = autor;
+        this.fecha = fecha;
+        this.contenido = contenido;
+    }
+
+    public int getIdPregunta() {
+        return idPregunta;
+    }
+
+    public void setIdPregunta(int idPregunta) {
+        this.idPregunta = idPregunta;
+    }
+
+    public int getIdRespuesta() {
+        return idRespuesta;
+    }
+
+    public void setIdRespuesta(int idRespuesta) {
+        this.idRespuesta = idRespuesta;
+    }
+
+    public String getAutor() {
+        return autor;
+    }
+
+    public void setAutor(String autor) {
+        this.autor = autor;
+    }
+
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
+
+    public String getContenido() {
+        return contenido;
+    }
+
+    public void setContenido(String contenido) {
+        this.contenido = contenido;
+    }
+    
+    
         /**
      * metodo mediante el cual el usuario agrega una respuesta a una pregunta en concreto
      * para esto se le asigna a la pregunta en su variable de id de pregunta el id de esta misma
@@ -29,32 +84,18 @@ public class Answer {
      * @param user
      * @return 
      */
-    /*
+    
     public int answer(Stack stack, Pregunta eleccion,int id,Usuario user){
-        this.idPregunta = eleccion.getIdPregunta();
+        String contenido = this.getContenido();
         this.idRespuesta = idRespuesta;
         eleccion.setCantidadRespuestas(idRespuesta);
-        System.out.println("Ingrese el contenido de la respuesta a la pregunta: ");
-        Scanner aux = new Scanner(System.in);
-        contenido = aux.nextLine();
-        
         this.autor = user.getNombre();
- 
+
         String fechaDePublicacion;
-        System.out.println("Ingrese la fecha de publicacion con formato dd/mm/aaaa: ");
-        Scanner aux2 = new Scanner(System.in);
-        fechaDePublicacion = aux2.nextLine();
-        stack.agregarRespuesta(idPregunta,id, user.getNombre(), fechaDePublicacion, contenido);
-        System.out.println("\nRespuesta publicada.\n");
-        System.out.println("Escoja su opcion: \n" +
-                        "1. Agregar nueva pregunta\n" +
-                        "2. Responder pregunta\n" +
-                        "3. Dar recompensa\n" +
-                        "4. Aceptar respuesta\n" +
-                        "5. Cerrar sesion\n" +
-                        "6. Salir del programa");
+        //stack.agregarRespuesta(idPregunta,id, user.getNombre(), fechaDePublicacion, contenido);
+
         
         return 1;
     } 
-    */
+    
 }

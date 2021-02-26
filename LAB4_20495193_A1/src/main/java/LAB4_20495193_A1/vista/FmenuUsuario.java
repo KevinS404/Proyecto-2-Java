@@ -5,18 +5,32 @@
  */
 package LAB4_20495193_A1.vista;
 
+import LAB4_20495193_A1.controlador.Ask;
+import LAB4_20495193_A1.controlador.Login;
+import LAB4_20495193_A1.modelo.Stack;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Admin
  */
 public class FmenuUsuario extends javax.swing.JFrame {
-
+    Login usuario;
+    Stack stack;
     /**
      * Creates new form FmenuUsuario
      */
-    public FmenuUsuario() {
+    public FmenuUsuario(Login usuario,Stack stack) {
         initComponents();
+        this.usuario = usuario;
+        this.stack = stack;
+
     }
+
+    private FmenuUsuario() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -28,7 +42,7 @@ public class FmenuUsuario extends javax.swing.JFrame {
     private void initComponents() {
 
         JBaddPregunta = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        JBanswer = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         JBlogout = new javax.swing.JButton();
@@ -38,8 +52,18 @@ public class FmenuUsuario extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         JBaddPregunta.setText("Agregar pregunta");
+        JBaddPregunta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBaddPreguntaActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Responder pregunta");
+        JBanswer.setText("Responder pregunta");
+        JBanswer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBanswerActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Dar recompensa");
 
@@ -68,7 +92,7 @@ public class FmenuUsuario extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(145, 145, 145)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(JBanswer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(JBaddPregunta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -88,7 +112,7 @@ public class FmenuUsuario extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(JBaddPregunta)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2)
+                .addComponent(JBanswer)
                 .addGap(18, 18, 18)
                 .addComponent(jButton3)
                 .addGap(18, 18, 18)
@@ -105,6 +129,7 @@ public class FmenuUsuario extends javax.swing.JFrame {
     //Boton que esta ligado al cierre de sesion del usuario
     private void JBlogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBlogoutActionPerformed
         // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "Sesion cerrada");
         dispose();
     }//GEN-LAST:event_JBlogoutActionPerformed
     //Si el usuario elige salir del programa entonces se paran todos los procesos
@@ -112,6 +137,16 @@ public class FmenuUsuario extends javax.swing.JFrame {
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_JBexitActionPerformed
+
+    private void JBaddPreguntaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBaddPreguntaActionPerformed
+        // TODO add your handling code here:
+        new Fquestion(stack,usuario).setVisible(true);
+    }//GEN-LAST:event_JBaddPreguntaActionPerformed
+
+    private void JBanswerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBanswerActionPerformed
+        // TODO add your handling code here:
+        new Fanswer(stack,usuario).setVisible(true);
+    }//GEN-LAST:event_JBanswerActionPerformed
 
     /**
      * @param args the command line arguments
@@ -150,9 +185,9 @@ public class FmenuUsuario extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JBaddPregunta;
+    private javax.swing.JButton JBanswer;
     private javax.swing.JButton JBexit;
     private javax.swing.JButton JBlogout;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;

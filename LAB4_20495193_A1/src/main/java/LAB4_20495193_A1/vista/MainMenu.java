@@ -21,8 +21,7 @@ public class MainMenu extends javax.swing.JFrame {
      */
     public MainMenu() {
         this.stackPrincipal = new Stack();
-        
-         //1 stack inicial
+        //1 stack inicial
         //4 usuarios registrados de ejemplo
         stackPrincipal.agregarUsuario("usuario1", "contrasena1",500);
         stackPrincipal.agregarUsuario("usuario2", "contrasena2",200);
@@ -43,7 +42,6 @@ public class MainMenu extends javax.swing.JFrame {
         ArrayList<String> etiqueta4 = new ArrayList<>();
         etiqueta1.add("c++");
         //5 preguntas de ejemplo
-        
         stackPrincipal.agregarPregunta(1,2,etiqueta1, "titulo1", "contenido1" , "fechaDePublicacion1", "usuario1", "cerrada", 0);
         stackPrincipal.agregarPregunta(2,0,etiqueta2, "titulo2", "contenido2" , "fechaDePublicacion2", "usuario2", "abierta", 15);
         stackPrincipal.agregarPregunta(3,5,etiqueta3, "titulo3", "contenido3" , "fechaDePublicacion3", "usuario3", "cerrada", 0);
@@ -61,11 +59,8 @@ public class MainMenu extends javax.swing.JFrame {
         stackPrincipal.agregarRespuesta(2,4, "usuario3", "12/12/2020", "contenido8");
         stackPrincipal.agregarRespuesta(4,5, "usuario4", "06/07/2020", "contenido9");
         stackPrincipal.agregarRespuesta(5,5, "usuario4", "15/01/2020", "contenido10");
-   
         initComponents();
     }
-
-
 
     public Stack getStackPrincipal() {
         return stackPrincipal;

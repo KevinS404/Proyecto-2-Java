@@ -17,6 +17,7 @@ public class FInicioSesion extends javax.swing.JFrame {
     Stack stack;
     /**
      * Creates new form FInicioSesion
+     * @param stackPrincipal
      */
     public FInicioSesion(Stack stackPrincipal) {
         this.stack = stackPrincipal;        
@@ -26,6 +27,8 @@ public class FInicioSesion extends javax.swing.JFrame {
     private FInicioSesion() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+
 
     public Stack getStack() {
         return stack;
@@ -113,7 +116,7 @@ public class FInicioSesion extends javax.swing.JFrame {
         if(ver == 1){   
             dispose();
             JOptionPane.showMessageDialog(null, "Sesion iniciada");
-            new FmenuUsuario().setVisible(true);
+            new FmenuUsuario(usuario,stack).setVisible(true);
         }
         //Datos no validos
         else if(ver == 0){

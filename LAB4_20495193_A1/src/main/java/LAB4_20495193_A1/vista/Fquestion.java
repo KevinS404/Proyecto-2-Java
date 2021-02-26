@@ -5,18 +5,39 @@
  */
 package LAB4_20495193_A1.vista;
 
+import LAB4_20495193_A1.controlador.Ask;
+import LAB4_20495193_A1.controlador.Login;
+import LAB4_20495193_A1.modelo.Stack;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Admin
  */
 public class Fquestion extends javax.swing.JFrame {
-
+    Stack stack;
+    Login usuario;
     /**
      * Creates new form Fquestion
      */
-    public Fquestion() {
+    public Fquestion(Stack stackPrincipal,Login usuario) {
+        this.usuario = usuario;
+        this.stack = stackPrincipal;
         initComponents();
     }
+
+    private Fquestion() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public Stack getStack() {
+        return stack;
+    }
+
+    public void setStack(Stack stack) {
+        this.stack = stack;
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -27,21 +48,109 @@ public class Fquestion extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        tituloP = new javax.swing.JTextField();
+        contenidoP = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        fechaP = new javax.swing.JTextField();
+        JBpublicar = new javax.swing.JButton();
+        JBetiqueta = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setText("Titulo de la pregunta:");
+
+        jLabel2.setText("Contenido de la pregunta:");
+
+        jLabel3.setText("Fecha de publicacion(dd/mm/aaaa):");
+
+        JBpublicar.setText("Publicar pregunta");
+        JBpublicar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBpublicarActionPerformed(evt);
+            }
+        });
+
+        JBetiqueta.setText("Añadir etiquetas");
+        JBetiqueta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBetiquetaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(93, 93, 93)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(JBpublicar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(JBetiqueta))
+                    .addComponent(tituloP)
+                    .addComponent(contenidoP)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel3)
+                        .addGap(18, 18, 18)))
+                .addGap(126, 126, 126))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(153, 153, 153)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(142, 142, 142)
+                        .addComponent(jLabel2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(164, 164, 164)
+                        .addComponent(fechaP, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tituloP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(contenidoP, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(fechaP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(JBpublicar)
+                    .addComponent(JBetiqueta))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void JBpublicarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBpublicarActionPerformed
+        // TODO add your handling code here:
+        String titulo = tituloP.getText();
+        String contenido = contenidoP.getText();
+        String fecha = fechaP.getText();
+        Ask pregunta = new Ask(titulo,contenido,fecha);
+        pregunta.ask(stack, usuario);
+        JOptionPane.showMessageDialog(null, "Pregunta publicada");
+        dispose();
+    }//GEN-LAST:event_JBpublicarActionPerformed
+
+    private void JBetiquetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBetiquetaActionPerformed
+        // TODO add your handling code here:
+        //añadir etiquetas
+
+    }//GEN-LAST:event_JBetiquetaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +188,13 @@ public class Fquestion extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton JBetiqueta;
+    private javax.swing.JButton JBpublicar;
+    private javax.swing.JTextField contenidoP;
+    private javax.swing.JTextField fechaP;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JTextField tituloP;
     // End of variables declaration//GEN-END:variables
 }

@@ -56,6 +56,7 @@ public class Login {
         for(int i = 0; i < stackPrincipal.getUsuarios().size();i++){
             if(user.getNombre().equals(stackPrincipal.getUsuarios().get(i).getNombre()) && user.getContrasena().equals(stackPrincipal.getUsuarios().get(i).getContrasena())){
                 verificador = 1;
+                
            }
         }
         /**

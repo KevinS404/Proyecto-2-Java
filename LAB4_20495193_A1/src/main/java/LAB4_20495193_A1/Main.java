@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-        
+        /*
         //primero se incluyen todas las estructuras de ejemplo solicitadas
         //1 stack inicial
         Stack stackPrincipal = new Stack();
@@ -50,7 +50,7 @@ public class Main {
         stackPrincipal.agregarRespuesta(2,4, "usuario3", "12/12/2020", "contenido8");
         stackPrincipal.agregarRespuesta(4,5, "usuario4", "06/07/2020", "contenido9");
         stackPrincipal.agregarRespuesta(5,5, "usuario4", "15/01/2020", "contenido10");
-        
+        */
        MainMenu menu = new MainMenu();
        menu.setVisible(true);
     }
