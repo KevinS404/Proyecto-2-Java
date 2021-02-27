@@ -151,6 +151,31 @@ public class Stack {
         eleccion = aux.nextInt();
         return preguntasDisponibles.get(eleccion-1);
   }
+            public ArrayList<Pregunta> mostrarPregunta(Stack stack){
+        
+        ArrayList<Pregunta> preguntas = stack.getPreguntas();
+        ArrayList<Pregunta> preguntasDisponibles = new ArrayList<>();
+        int j = 1;
+        for(int i = 0; i < preguntas.size();i++){
+            if("abierta".equals(preguntas.get(i).getEstado())){
+                preguntasDisponibles.add(preguntas.get(i));
+                /*
+                System.out.println("Pregunta" + " "+ j + ": "+ preguntas.get(i).getTitulo()+ ". Publicada por: " +  preguntas.get(i).getAutor()+
+                                    ". Etiquetas: "+ preguntas.get(i).getEtiquetas());
+                System.out.println("Su contenido es: ");
+                System.out.println(preguntas.get(i).getContenido()+"\n");
+                */
+                j++;
+            }
+        }
+        /*
+        int eleccion;
+        System.out.println("Escriba el numero de la pregunta a elegir: ");
+        Scanner aux = new Scanner(System.in);
+        eleccion = aux.nextInt();
+        */
+        return preguntasDisponibles;
+  }
     /**
      * Metodo que se encarga de buscar en el stack una pregunta o respuesta mediante
      * un criterio a eleccion y un String con los caracteres buscados que se le pediran

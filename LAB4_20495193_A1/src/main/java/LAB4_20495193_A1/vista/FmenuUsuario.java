@@ -7,6 +7,7 @@ package LAB4_20495193_A1.vista;
 
 import LAB4_20495193_A1.controlador.Ask;
 import LAB4_20495193_A1.controlador.Login;
+import LAB4_20495193_A1.modelo.Pregunta;
 import LAB4_20495193_A1.modelo.Stack;
 import javax.swing.JOptionPane;
 
@@ -43,7 +44,7 @@ public class FmenuUsuario extends javax.swing.JFrame {
 
         JBaddPregunta = new javax.swing.JButton();
         JBanswer = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        JBreward = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         JBlogout = new javax.swing.JButton();
         JBexit = new javax.swing.JButton();
@@ -65,7 +66,12 @@ public class FmenuUsuario extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setText("Dar recompensa");
+        JBreward.setText("Dar recompensa");
+        JBreward.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBrewardActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("Aceptar respuesta");
 
@@ -94,7 +100,7 @@ public class FmenuUsuario extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(JBanswer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(JBaddPregunta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(JBreward, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(JBlogout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(JBexit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -114,7 +120,7 @@ public class FmenuUsuario extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(JBanswer)
                 .addGap(18, 18, 18)
-                .addComponent(jButton3)
+                .addComponent(JBreward)
                 .addGap(18, 18, 18)
                 .addComponent(jButton4)
                 .addGap(18, 18, 18)
@@ -144,9 +150,12 @@ public class FmenuUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_JBaddPreguntaActionPerformed
 
     private void JBanswerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBanswerActionPerformed
-        // TODO add your handling code here:
-        new Fanswer(stack,usuario).setVisible(true);
+        new Feleccion(stack,usuario).setVisible(true);
     }//GEN-LAST:event_JBanswerActionPerformed
+
+    private void JBrewardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBrewardActionPerformed
+        new Freward(stack,usuario).setVisible(true);
+    }//GEN-LAST:event_JBrewardActionPerformed
 
     /**
      * @param args the command line arguments
@@ -188,7 +197,7 @@ public class FmenuUsuario extends javax.swing.JFrame {
     private javax.swing.JButton JBanswer;
     private javax.swing.JButton JBexit;
     private javax.swing.JButton JBlogout;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton JBreward;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables

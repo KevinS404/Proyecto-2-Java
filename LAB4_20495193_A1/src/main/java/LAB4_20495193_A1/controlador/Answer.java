@@ -8,6 +8,9 @@ package LAB4_20495193_A1.controlador;
 import LAB4_20495193_A1.modelo.Pregunta;
 import LAB4_20495193_A1.modelo.Stack;
 import LAB4_20495193_A1.modelo.Usuario;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.Scanner;
 
 /**
@@ -16,56 +19,35 @@ import java.util.Scanner;
  */
 
 public class Answer {
-    private int idPregunta;
-    private int idRespuesta;
-    private String autor;
-    private String fecha;
+    private String idPregunta;
+    private Stack stack;
     private String contenido;
-
-    public Answer(int idPregunta, int idRespuesta, String autor, String fecha, String contenido) {
-        this.idPregunta = idPregunta;
-        this.idRespuesta = idRespuesta;
-        this.autor = autor;
-        this.fecha = fecha;
+    private Login usuario;
+    
+    public Answer(Stack stack, String contenido, Login usuario, String id) {
+        this.stack = stack;
         this.contenido = contenido;
+        this.usuario = usuario;
+        this.idPregunta = id;
     }
-
-    public int getIdPregunta() {
-        return idPregunta;
+    public Answer() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-    public void setIdPregunta(int idPregunta) {
-        this.idPregunta = idPregunta;
+    public Stack getStack() {
+        return stack;
     }
-
-    public int getIdRespuesta() {
-        return idRespuesta;
+    public void setStack(Stack stack) {
+        this.stack = stack;
     }
-
-    public void setIdRespuesta(int idRespuesta) {
-        this.idRespuesta = idRespuesta;
+    public Login getUsuario() {
+        return usuario;
     }
-
-    public String getAutor() {
-        return autor;
+    public void setUsuario(Login usuario) {
+        this.usuario = usuario;
     }
-
-    public void setAutor(String autor) {
-        this.autor = autor;
-    }
-
-    public String getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(String fecha) {
-        this.fecha = fecha;
-    }
-
     public String getContenido() {
         return contenido;
     }
-
     public void setContenido(String contenido) {
         this.contenido = contenido;
     }
@@ -84,16 +66,17 @@ public class Answer {
      * @param user
      * @return 
      */
+    public String fechita(){
+        SimpleDateFormat df = new SimpleDateFormat("dd/MM/YYYY");
+        Date fecha = new Date();
+        return df.format(fecha);
+    }
+
     
-    public int answer(Stack stack, Pregunta eleccion,int id,Usuario user){
-        String contenido = this.getContenido();
-        this.idRespuesta = idRespuesta;
-        eleccion.setCantidadRespuestas(idRespuesta);
-        this.autor = user.getNombre();
-
-        String fechaDePublicacion;
-        //stack.agregarRespuesta(idPregunta,id, user.getNombre(), fechaDePublicacion, contenido);
-
+    public int answer(Stack stack, String contenido,Login user,String id){
+        int idPregunta = Integer.parseInt(id);
+        String fechaDePublicacion = fechita();
+        stack.agregarRespuesta(idPregunta,idPregunta, user.getNombre(), fechaDePublicacion, contenido);
         
         return 1;
     } 

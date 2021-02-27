@@ -42,11 +42,11 @@ public class MainMenu extends javax.swing.JFrame {
         ArrayList<String> etiqueta4 = new ArrayList<>();
         etiqueta1.add("c++");
         //5 preguntas de ejemplo
-        stackPrincipal.agregarPregunta(1,2,etiqueta1, "titulo1", "contenido1" , "fechaDePublicacion1", "usuario1", "cerrada", 0);
-        stackPrincipal.agregarPregunta(2,0,etiqueta2, "titulo2", "contenido2" , "fechaDePublicacion2", "usuario2", "abierta", 15);
-        stackPrincipal.agregarPregunta(3,5,etiqueta3, "titulo3", "contenido3" , "fechaDePublicacion3", "usuario3", "cerrada", 0);
-        stackPrincipal.agregarPregunta(4,1,etiqueta1, "titulo4", "contenido4" , "fechaDePublicacion4", "usuario4", "abierta", 0);
-        stackPrincipal.agregarPregunta(5,6,etiqueta4, "titulo5", "contenido5" , "fechaDePublicacion4", "usuario1", "cerrada", 0);
+        stackPrincipal.agregarPregunta(1,2,etiqueta1, "titulo1", "contenido1" , "27/12/2020", "usuario1", "cerrada", 0);
+        stackPrincipal.agregarPregunta(2,0,etiqueta2, "titulo2", "contenido2" , "15/08/2020", "usuario2", "abierta", 15);
+        stackPrincipal.agregarPregunta(3,5,etiqueta3, "titulo3", "contenido3" , "02/06/2020", "usuario3", "cerrada", 0);
+        stackPrincipal.agregarPregunta(4,1,etiqueta1, "titulo4", "contenido4" , "20/02/2020", "usuario4", "abierta", 0);
+        stackPrincipal.agregarPregunta(5,6,etiqueta4, "titulo5", "contenido5" , "17/04/2020", "usuario1", "cerrada", 0);
 
         //10 respuestas de ejemplo
         stackPrincipal.agregarRespuesta(1,1, "usuario1", "27/07/2020", "contenido1");
