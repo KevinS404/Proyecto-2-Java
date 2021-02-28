@@ -5,8 +5,8 @@
  */
 package LAB4_20495193_A1.vista;
 
-import LAB4_20495193_A1.controlador.Answer;
 import LAB4_20495193_A1.controlador.Login;
+import LAB4_20495193_A1.controlador.Reward;
 import LAB4_20495193_A1.modelo.Pregunta;
 import LAB4_20495193_A1.modelo.Stack;
 import java.util.ArrayList;
@@ -60,7 +60,7 @@ public class Freward extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        JTpreguntas = new javax.swing.JTable();
+        JTpreguntas2 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -77,7 +77,7 @@ public class Freward extends javax.swing.JFrame {
             }
         });
 
-        JTpreguntas.setModel(new javax.swing.table.DefaultTableModel(
+        JTpreguntas2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -85,12 +85,12 @@ public class Freward extends javax.swing.JFrame {
 
             }
         ));
-        JTpreguntas.addMouseListener(new java.awt.event.MouseAdapter() {
+        JTpreguntas2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                JTpreguntasMouseClicked(evt);
+                JTpreguntas2MouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(JTpreguntas);
+        jScrollPane1.setViewportView(JTpreguntas2);
 
         jLabel1.setText("Haga click en la pregunta que desea elegir:");
 
@@ -126,13 +126,15 @@ public class Freward extends javax.swing.JFrame {
         this.elegirPregunta();
     }//GEN-LAST:event_formWindowOpened
 
-    private void JTpreguntasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTpreguntasMouseClicked
-        DefaultTableModel tablita = (DefaultTableModel)JTpreguntas.getModel();
-        int selectedRowIndex = JTpreguntas.getSelectedRow();
-        String ward = (String)JTpreguntas.getValueAt(JTpreguntas.getSelectedRow(), 0);
+    private void JTpreguntas2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTpreguntas2MouseClicked
+        DefaultTableModel tablita = (DefaultTableModel)JTpreguntas2.getModel();
+        int selectedRowIndex = JTpreguntas2.getSelectedRow();
+        String eleccion = (String)JTpreguntas2.getValueAt(JTpreguntas2.getSelectedRow(), 0);
         String recompensa =  showInputDialog("Introduza la recompensa: ");
-        //dispose();
-    }//GEN-LAST:event_JTpreguntasMouseClicked
+        Reward recompensar = new Reward(stack,recompensa,usuario);
+        recompensar.reward(stack, usuario, recompensa,eleccion);
+        dispose();
+    }//GEN-LAST:event_JTpreguntas2MouseClicked
     private void elegirPregunta(){
         ArrayList<Pregunta> preguntasD;
         preguntasD = stack.mostrarPregunta(stack);
@@ -145,7 +147,7 @@ public class Freward extends javax.swing.JFrame {
         tablita.addColumn("Fecha publicacion");
         tablita.addColumn("Recompensa");
         
-        JTpreguntas.setModel(tablita);
+        JTpreguntas2.setModel(tablita);
         String[] dato = new String[7];
         for(int i = 0; i < preguntasD.size();i++){
             Pregunta prg = preguntasD.get(i);
@@ -198,7 +200,7 @@ public class Freward extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable JTpreguntas;
+    private javax.swing.JTable JTpreguntas2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables

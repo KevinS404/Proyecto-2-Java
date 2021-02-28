@@ -3,6 +3,7 @@ package LAB4_20495193_A1.modelo;
 import LAB4_20495193_A1.modelo.Pregunta;
 import java.util.ArrayList;
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 /**
  * Se crea una clase llamada Stack que almacenara todas las clases nuevas
@@ -176,6 +177,25 @@ public class Stack {
         */
         return preguntasDisponibles;
   }
+    public Usuario buscarUsuario(Stack stack, String nombre){
+        Usuario usuarioEncontrado = null;
+        for(int i = 0; i< stack.getUsuarios().size();i++){
+            if( nombre == null ? stack.getUsuarios().get(i).getNombre() == null : nombre.equals(stack.getUsuarios().get(i).getNombre())){
+                usuarioEncontrado = stack.getUsuarios().get(i);
+            }
+        }
+        return usuarioEncontrado;
+        
+    }
+    public Pregunta buscarPregunta(Stack stack,int id){
+        Pregunta preguntaEncontrada = null;
+        for(int i = 0; i < stack.getPreguntas().size();i++){
+            if (id == stack.getPreguntas().get(i).getIdPregunta()){
+                preguntaEncontrada = stack.getPreguntas().get(id);
+            }
+    }
+        return preguntaEncontrada;
+    }
     /**
      * Metodo que se encarga de buscar en el stack una pregunta o respuesta mediante
      * un criterio a eleccion y un String con los caracteres buscados que se le pediran

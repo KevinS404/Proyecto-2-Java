@@ -47,8 +47,6 @@ public class Feleccion extends javax.swing.JFrame {
     public void setUsuario(Login usuario) {
         this.usuario = usuario;
     }
-    
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -128,8 +126,8 @@ public class Feleccion extends javax.swing.JFrame {
     private void JTpreguntasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTpreguntasMouseClicked
         DefaultTableModel tablita = (DefaultTableModel)JTpreguntas.getModel();
         int selectedRowIndex = JTpreguntas.getSelectedRow();
-        String ward = (String)JTpreguntas.getValueAt(JTpreguntas.getSelectedRow(), 0);
-        new Fanswer(stack,usuario,ward).setVisible(true);
+        String auxiliar = (String)JTpreguntas.getValueAt(JTpreguntas.getSelectedRow(), 0);
+        new Fanswer(stack,usuario,auxiliar).setVisible(true);
         dispose();
     }//GEN-LAST:event_JTpreguntasMouseClicked
     private void elegirPregunta(){

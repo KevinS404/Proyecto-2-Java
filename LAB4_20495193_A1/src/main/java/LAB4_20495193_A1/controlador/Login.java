@@ -37,9 +37,7 @@ public class Login {
     public void setContrasena(String contrasena) {
         this.contrasena = contrasena;
     }
-    
-    
-    
+
     public int login(Stack stackPrincipal,Login user){
         String nombreInicio = this.getNombre();
         String contrasenaInicio = this.getContrasena();
