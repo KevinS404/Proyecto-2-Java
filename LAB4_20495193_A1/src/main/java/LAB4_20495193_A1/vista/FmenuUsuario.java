@@ -45,7 +45,7 @@ public class FmenuUsuario extends javax.swing.JFrame {
         JBaddPregunta = new javax.swing.JButton();
         JBanswer = new javax.swing.JButton();
         JBreward = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        JBaccept = new javax.swing.JButton();
         JBlogout = new javax.swing.JButton();
         JBexit = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -73,7 +73,12 @@ public class FmenuUsuario extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setText("Aceptar respuesta");
+        JBaccept.setText("Aceptar respuesta");
+        JBaccept.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBacceptActionPerformed(evt);
+            }
+        });
 
         JBlogout.setText("Cerrar Sesión");
         JBlogout.addActionListener(new java.awt.event.ActionListener() {
@@ -101,7 +106,7 @@ public class FmenuUsuario extends javax.swing.JFrame {
                     .addComponent(JBanswer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(JBaddPregunta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(JBreward, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(JBaccept, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(JBlogout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(JBexit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(124, Short.MAX_VALUE))
@@ -122,7 +127,7 @@ public class FmenuUsuario extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(JBreward)
                 .addGap(18, 18, 18)
-                .addComponent(jButton4)
+                .addComponent(JBaccept)
                 .addGap(18, 18, 18)
                 .addComponent(JBlogout)
                 .addGap(18, 18, 18)
@@ -156,6 +161,10 @@ public class FmenuUsuario extends javax.swing.JFrame {
     private void JBrewardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBrewardActionPerformed
         new Freward(stack,usuario).setVisible(true);
     }//GEN-LAST:event_JBrewardActionPerformed
+
+    private void JBacceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBacceptActionPerformed
+        new Feleccion2(stack,usuario).setVisible(true);
+    }//GEN-LAST:event_JBacceptActionPerformed
 
     /**
      * @param args the command line arguments
@@ -193,12 +202,12 @@ public class FmenuUsuario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton JBaccept;
     private javax.swing.JButton JBaddPregunta;
     private javax.swing.JButton JBanswer;
     private javax.swing.JButton JBexit;
     private javax.swing.JButton JBlogout;
     private javax.swing.JButton JBreward;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

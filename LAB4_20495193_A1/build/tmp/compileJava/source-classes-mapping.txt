@@ -1,9 +1,9 @@
 LAB4_20495193_A1/controlador/Logout.java
  LAB4_20495193_A1.controlador.Logout
-LAB4_20495193_A1/Main.java
- LAB4_20495193_A1.Main
 LAB4_20495193_A1/modelo/Etiqueta.java
  LAB4_20495193_A1.modelo.Etiqueta
+LAB4_20495193_A1/Main.java
+ LAB4_20495193_A1.Main
 LAB4_20495193_A1/modelo/Respuesta.java
  LAB4_20495193_A1.modelo.Respuesta
 LAB4_20495193_A1/vista/Fregistro.java
@@ -18,14 +18,11 @@ LAB4_20495193_A1/controlador/Register.java
  LAB4_20495193_A1.controlador.Register
 LAB4_20495193_A1/controlador/Reward.java
  LAB4_20495193_A1.controlador.Reward
-LAB4_20495193_A1/vista/FmenuUsuario.java
- LAB4_20495193_A1.vista.FmenuUsuario
- LAB4_20495193_A1.vista.FmenuUsuario$1
- LAB4_20495193_A1.vista.FmenuUsuario$2
- LAB4_20495193_A1.vista.FmenuUsuario$3
- LAB4_20495193_A1.vista.FmenuUsuario$4
- LAB4_20495193_A1.vista.FmenuUsuario$5
- LAB4_20495193_A1.vista.FmenuUsuario$6
+LAB4_20495193_A1/vista/Fquestion.java
+ LAB4_20495193_A1.vista.Fquestion
+ LAB4_20495193_A1.vista.Fquestion$1
+ LAB4_20495193_A1.vista.Fquestion$2
+ LAB4_20495193_A1.vista.Fquestion$3
 LAB4_20495193_A1/controlador/Search.java
  LAB4_20495193_A1.controlador.Search
 LAB4_20495193_A1/vista/Feleccion.java
@@ -34,6 +31,8 @@ LAB4_20495193_A1/vista/Feleccion.java
  LAB4_20495193_A1.vista.Feleccion$2
  LAB4_20495193_A1.vista.Feleccion$3
  LAB4_20495193_A1.vista.Feleccion$4
+LAB4_20495193_A1/controlador/Answer.java
+ LAB4_20495193_A1.controlador.Answer
 LAB4_20495193_A1/controlador/Accept.java
  LAB4_20495193_A1.controlador.Accept
 LAB4_20495193_A1/vista/Freward.java
@@ -62,10 +61,18 @@ LAB4_20495193_A1/vista/FInicioSesion.java
  LAB4_20495193_A1.vista.FInicioSesion
  LAB4_20495193_A1.vista.FInicioSesion$1
  LAB4_20495193_A1.vista.FInicioSesion$2
-LAB4_20495193_A1/controlador/Answer.java
- LAB4_20495193_A1.controlador.Answer
-LAB4_20495193_A1/vista/Fquestion.java
- LAB4_20495193_A1.vista.Fquestion
- LAB4_20495193_A1.vista.Fquestion$1
- LAB4_20495193_A1.vista.Fquestion$2
- LAB4_20495193_A1.vista.Fquestion$3
+LAB4_20495193_A1/vista/FmenuUsuario.java
+ LAB4_20495193_A1.vista.FmenuUsuario
+ LAB4_20495193_A1.vista.FmenuUsuario$1
+ LAB4_20495193_A1.vista.FmenuUsuario$2
+ LAB4_20495193_A1.vista.FmenuUsuario$3
+ LAB4_20495193_A1.vista.FmenuUsuario$4
+ LAB4_20495193_A1.vista.FmenuUsuario$5
+ LAB4_20495193_A1.vista.FmenuUsuario$6
+ LAB4_20495193_A1.vista.FmenuUsuario$7
+LAB4_20495193_A1/vista/Faccept.java
+ LAB4_20495193_A1.vista.Faccept
+ LAB4_20495193_A1.vista.Faccept$1
+ LAB4_20495193_A1.vista.Faccept$2
+ LAB4_20495193_A1.vista.Faccept$3
+ LAB4_20495193_A1.vista.Faccept$4

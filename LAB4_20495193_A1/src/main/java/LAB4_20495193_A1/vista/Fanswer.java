@@ -7,11 +7,7 @@ package LAB4_20495193_A1.vista;
 
 import LAB4_20495193_A1.controlador.Answer;
 import LAB4_20495193_A1.controlador.Login;
-import LAB4_20495193_A1.modelo.Pregunta;
 import LAB4_20495193_A1.modelo.Stack;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import javax.swing.JOptionPane;
 
 /**

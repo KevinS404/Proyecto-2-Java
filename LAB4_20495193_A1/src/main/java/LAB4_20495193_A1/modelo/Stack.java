@@ -1,7 +1,9 @@
 
 package LAB4_20495193_A1.modelo;
 import LAB4_20495193_A1.modelo.Pregunta;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
 
@@ -152,7 +154,7 @@ public class Stack {
         eleccion = aux.nextInt();
         return preguntasDisponibles.get(eleccion-1);
   }
-            public ArrayList<Pregunta> mostrarPregunta(Stack stack){
+        public ArrayList<Pregunta> mostrarPregunta(Stack stack){
         
         ArrayList<Pregunta> preguntas = stack.getPreguntas();
         ArrayList<Pregunta> preguntasDisponibles = new ArrayList<>();
@@ -160,21 +162,9 @@ public class Stack {
         for(int i = 0; i < preguntas.size();i++){
             if("abierta".equals(preguntas.get(i).getEstado())){
                 preguntasDisponibles.add(preguntas.get(i));
-                /*
-                System.out.println("Pregunta" + " "+ j + ": "+ preguntas.get(i).getTitulo()+ ". Publicada por: " +  preguntas.get(i).getAutor()+
-                                    ". Etiquetas: "+ preguntas.get(i).getEtiquetas());
-                System.out.println("Su contenido es: ");
-                System.out.println(preguntas.get(i).getContenido()+"\n");
-                */
                 j++;
             }
         }
-        /*
-        int eleccion;
-        System.out.println("Escriba el numero de la pregunta a elegir: ");
-        Scanner aux = new Scanner(System.in);
-        eleccion = aux.nextInt();
-        */
         return preguntasDisponibles;
   }
     public Usuario buscarUsuario(Stack stack, String nombre){
@@ -191,10 +181,25 @@ public class Stack {
         Pregunta preguntaEncontrada = null;
         for(int i = 0; i < stack.getPreguntas().size();i++){
             if (id == stack.getPreguntas().get(i).getIdPregunta()){
-                preguntaEncontrada = stack.getPreguntas().get(id);
+                preguntaEncontrada = stack.getPreguntas().get(i);
             }
     }
         return preguntaEncontrada;
+    }
+    public ArrayList<Pregunta> buscarMisPreguntas(Stack stack,String nombre){
+        ArrayList<Pregunta> preguntasEncontradas = new ArrayList<>();
+        for(int i = 0; i < stack.getPreguntas().size();i++){
+            if ("abierta".equals(stack.getPreguntas().get(i).getEstado()) && (nombre == null ? stack.getPreguntas().get(i).getAutor() == null : nombre.equals(stack.getPreguntas().get(i).getAutor()))){
+                preguntasEncontradas.add(stack.getPreguntas().get(i));
+            }
+    }
+        return preguntasEncontradas;
+    }
+    
+        public String fechita(){
+        SimpleDateFormat df = new SimpleDateFormat("dd/MM/YYYY");
+        Date fecha = new Date();
+        return df.format(fecha);
     }
     /**
      * Metodo que se encarga de buscar en el stack una pregunta o respuesta mediante

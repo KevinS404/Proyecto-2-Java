@@ -5,29 +5,31 @@
  */
 package LAB4_20495193_A1.vista;
 
+import LAB4_20495193_A1.controlador.Answer;
 import LAB4_20495193_A1.controlador.Login;
 import LAB4_20495193_A1.modelo.Pregunta;
 import LAB4_20495193_A1.modelo.Stack;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author Admin
  */
-public class Feleccion extends javax.swing.JFrame {
+public class Feleccion2 extends javax.swing.JFrame {
     private Stack stack;
     private Login usuario;
     /**
      * Creates new form Feleccion
      */
-    public Feleccion(Stack stack, Login usuario) {
+    public Feleccion2(Stack stack, Login usuario) {
         this.stack = stack;
         this.usuario = usuario;
         initComponents();
     }
 
-    private Feleccion() {
+    private Feleccion2() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -88,7 +90,7 @@ public class Feleccion extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(JTpreguntas);
 
-        jLabel1.setText("Haga click en la pregunta que desea elegir:");
+        jLabel1.setText("Tus preguntas:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -98,7 +100,7 @@ public class Feleccion extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 819, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addGap(303, 303, 303)
+                .addGap(369, 369, 369)
                 .addComponent(jLabel1)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
@@ -121,38 +123,46 @@ public class Feleccion extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         this.elegirPregunta();
     }//GEN-LAST:event_formWindowOpened
-
+    //cuando el usuario presione una pregunta entonces el programa ejecutara el proceso
+    //de aceptar una respuesta
     private void JTpreguntasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTpreguntasMouseClicked
         DefaultTableModel tablita = (DefaultTableModel)JTpreguntas.getModel();
         int selectedRowIndex = JTpreguntas.getSelectedRow();
         String auxiliar = (String)JTpreguntas.getValueAt(JTpreguntas.getSelectedRow(), 0);
-        new Fanswer(stack,usuario,auxiliar).setVisible(true);
+        //new Feleccion2(stack,usuario,auxiliar).setVisible(true);
         dispose();
     }//GEN-LAST:event_JTpreguntasMouseClicked
-    private void elegirPregunta(){
+    //Se muestra por pantalla una tabla con los datos correspondientes a la pregunta
+    //para que el usuario pueda elegir una
+    private void elegirPregunta(){ 
         ArrayList<Pregunta> preguntasD;
-        preguntasD = stack.mostrarPregunta(stack);
-        DefaultTableModel tablita = new DefaultTableModel();
-        tablita.addColumn("ID");
-        tablita.addColumn("Autor");
-        tablita.addColumn("Titulo");
-        tablita.addColumn("Contenido");
-        tablita.addColumn("Etiquetas");
-        tablita.addColumn("Fecha publicacion");
-        tablita.addColumn("Recompensa");
-        
-        JTpreguntas.setModel(tablita);
-        String[] dato = new String[7];
-        for(int i = 0; i < preguntasD.size();i++){
-            Pregunta prg = preguntasD.get(i);
-            dato[0] = prg.getIdPregunta()+"";
-            dato[1] = prg.getAutor();
-            dato[2] = prg.getTitulo();
-            dato[3] = prg.getContenido();
-            dato[4] = prg.getEtiquetas()+"";
-            dato[5] = prg.getFechaDePublicacion();
-            dato[6] = prg.getRecompensa()+ "";
-            tablita.addRow(dato);
+        preguntasD = stack.buscarMisPreguntas(stack,usuario.getNombre());
+        if(preguntasD.size() >= 1){
+            DefaultTableModel tablita = new DefaultTableModel();
+            tablita.addColumn("ID");
+            tablita.addColumn("Autor");
+            tablita.addColumn("Titulo");
+            tablita.addColumn("Contenido");
+            tablita.addColumn("Etiquetas");
+            tablita.addColumn("Fecha publicacion");
+            tablita.addColumn("Recompensa");
+            JTpreguntas.setModel(tablita);
+            String[] dato = new String[7];
+            for(int i = 0; i < preguntasD.size();i++){
+                Pregunta prg = preguntasD.get(i);
+                dato[0] = prg.getIdPregunta()+"";
+                dato[1] = prg.getAutor();
+                dato[2] = prg.getTitulo();
+                dato[3] = prg.getContenido();
+                dato[4] = prg.getEtiquetas()+"";
+                dato[5] = prg.getFechaDePublicacion();
+                dato[6] = prg.getRecompensa()+ "";
+                tablita.addRow(dato);
+            }
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "No tiene preguntas disponibles");
+            dispose();
         }
         
     }
@@ -174,20 +184,27 @@ public class Feleccion extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Feleccion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Feleccion2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Feleccion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Feleccion2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Feleccion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Feleccion2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Feleccion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Feleccion2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Feleccion().setVisible(true);
+                new Feleccion2().setVisible(true);
             }
         });
     }

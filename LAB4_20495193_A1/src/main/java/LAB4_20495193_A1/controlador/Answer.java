@@ -66,18 +66,13 @@ public class Answer {
      * @param user
      * @return 
      */
-    public String fechita(){
-        SimpleDateFormat df = new SimpleDateFormat("dd/MM/YYYY");
-        Date fecha = new Date();
-        return df.format(fecha);
-    }
+
 
     
     public int answer(Stack stack, String contenido,Login user,String id){
         int idPregunta = Integer.parseInt(id);
-        String fechaDePublicacion = fechita();
+        String fechaDePublicacion = stack.fechita();
         stack.agregarRespuesta(idPregunta,idPregunta, user.getNombre(), fechaDePublicacion, contenido);
-        
         return 1;
     } 
     
