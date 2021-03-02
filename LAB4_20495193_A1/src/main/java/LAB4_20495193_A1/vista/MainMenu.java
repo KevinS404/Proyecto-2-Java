@@ -43,22 +43,21 @@ public class MainMenu extends javax.swing.JFrame {
         etiqueta1.add("c++");
         //5 preguntas de ejemplo
         stackPrincipal.agregarPregunta(1,2,etiqueta1, "titulo1", "contenido1" , "27/12/2020", "usuario1", "cerrada", 0);
-        stackPrincipal.agregarPregunta(2,0,etiqueta2, "titulo2", "contenido2" , "15/08/2020", "usuario2", "abierta", 15);
-        stackPrincipal.agregarPregunta(3,5,etiqueta3, "titulo3", "contenido3" , "02/06/2020", "usuario3", "cerrada", 0);
+        stackPrincipal.agregarPregunta(2,4,etiqueta2, "titulo2", "contenido2" , "15/08/2020", "usuario2", "abierta", 15);
+        stackPrincipal.agregarPregunta(3,2,etiqueta3, "titulo3", "contenido3" , "02/06/2020", "usuario3", "cerrada", 0);
         stackPrincipal.agregarPregunta(4,1,etiqueta1, "titulo4", "contenido4" , "20/02/2020", "usuario4", "abierta", 0);
-        stackPrincipal.agregarPregunta(5,6,etiqueta4, "titulo5", "contenido5" , "17/04/2020", "usuario1", "cerrada", 0);
-
+        stackPrincipal.agregarPregunta(5,1,etiqueta4, "titulo5", "contenido5" , "17/04/2020", "usuario1", "cerrada", 0);
         //10 respuestas de ejemplo
         stackPrincipal.agregarRespuesta(1,1, "usuario1", "27/07/2020", "contenido1");
         stackPrincipal.agregarRespuesta(2,2, "usuario1", "07/01/2021", "contenido2");
-        stackPrincipal.agregarRespuesta(3,1, "usuario2", "10/07/2020", "contenido3");
-        stackPrincipal.agregarRespuesta(2,1, "usuario2", "27/03/2020", "contenido4");
-        stackPrincipal.agregarRespuesta(1,2, "usuario2", "02/01/2021", "contenido5");
-        stackPrincipal.agregarRespuesta(3,2, "usuario3", "30/11/2020", "contenido6");
-        stackPrincipal.agregarRespuesta(2,3, "usuario3", "20/09/2020", "contenido7");
-        stackPrincipal.agregarRespuesta(2,4, "usuario3", "12/12/2020", "contenido8");
-        stackPrincipal.agregarRespuesta(4,5, "usuario4", "06/07/2020", "contenido9");
-        stackPrincipal.agregarRespuesta(5,5, "usuario4", "15/01/2020", "contenido10");
+        stackPrincipal.agregarRespuesta(3,3, "usuario2", "10/07/2020", "contenido3");
+        stackPrincipal.agregarRespuesta(2,4, "usuario2", "27/03/2020", "contenido4");
+        stackPrincipal.agregarRespuesta(1,5, "usuario2", "02/01/2021", "contenido5");
+        stackPrincipal.agregarRespuesta(3,6, "usuario3", "30/11/2020", "contenido6");
+        stackPrincipal.agregarRespuesta(2,7, "usuario3", "20/09/2020", "contenido7");
+        stackPrincipal.agregarRespuesta(2,8, "usuario3", "12/12/2020", "contenido8");
+        stackPrincipal.agregarRespuesta(4,9, "usuario4", "06/07/2020", "contenido9");
+        stackPrincipal.agregarRespuesta(5,10, "usuario4", "15/01/2020", "contenido10");
         initComponents();
     }
 
@@ -101,6 +100,11 @@ public class MainMenu extends javax.swing.JFrame {
         });
 
         JBsearch.setText("Search");
+        JBsearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBsearchActionPerformed(evt);
+            }
+        });
 
         JBexit.setText("Salir");
         JBexit.addActionListener(new java.awt.event.ActionListener() {
@@ -155,6 +159,11 @@ public class MainMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
         dispose();
     }//GEN-LAST:event_JBexitActionPerformed
+
+    private void JBsearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBsearchActionPerformed
+        // TODO add your handling code here:
+        new Fsearch(stackPrincipal).setVisible(true);
+    }//GEN-LAST:event_JBsearchActionPerformed
 
     /**
      * @param args the command line arguments

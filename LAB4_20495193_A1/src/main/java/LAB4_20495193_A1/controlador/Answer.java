@@ -7,11 +7,6 @@ package LAB4_20495193_A1.controlador;
 
 import LAB4_20495193_A1.modelo.Pregunta;
 import LAB4_20495193_A1.modelo.Stack;
-import LAB4_20495193_A1.modelo.Usuario;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Scanner;
 
 /**
  *
@@ -67,12 +62,20 @@ public class Answer {
      * @return 
      */
 
-
-    
-    public int answer(Stack stack, String contenido,Login user,String id){
-        int idPregunta = Integer.parseInt(id);
+    public int answer(Stack stack, String contenido,Login user){
+        Pregunta prg = null;
+        int id = Integer.parseInt(idPregunta);
+        for(int i = 0;i < stack.getPreguntas().size();i++){
+            if(stack.getPreguntas().get(i).getIdPregunta() == id){
+                prg = stack.getPreguntas().get(i);
+            }
+        }
+        int cantidad = prg.getCantidadRespuestas();
+        cantidad++;
+        prg.setCantidadRespuestas(cantidad);
+        int idR = stack.getRespuestas().size() + 1;
         String fechaDePublicacion = stack.fechita();
-        stack.agregarRespuesta(idPregunta,idPregunta, user.getNombre(), fechaDePublicacion, contenido);
+        stack.agregarRespuesta(id,idR, user.getNombre(), fechaDePublicacion, contenido);
         return 1;
     } 
     

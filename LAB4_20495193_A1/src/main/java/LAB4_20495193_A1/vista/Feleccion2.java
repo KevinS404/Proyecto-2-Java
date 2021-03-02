@@ -5,7 +5,6 @@
  */
 package LAB4_20495193_A1.vista;
 
-import LAB4_20495193_A1.controlador.Answer;
 import LAB4_20495193_A1.controlador.Login;
 import LAB4_20495193_A1.modelo.Pregunta;
 import LAB4_20495193_A1.modelo.Stack;
@@ -60,6 +59,7 @@ public class Feleccion2 extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         JTpreguntas = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowFocusListener(new java.awt.event.WindowFocusListener() {
@@ -92,6 +92,13 @@ public class Feleccion2 extends javax.swing.JFrame {
 
         jLabel1.setText("Tus preguntas:");
 
+        jButton1.setText("Volver");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -100,8 +107,13 @@ public class Feleccion2 extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 819, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addGap(369, 369, 369)
-                .addComponent(jLabel1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(369, 369, 369)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(366, 366, 366)
+                        .addComponent(jButton1)))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -110,7 +122,9 @@ public class Feleccion2 extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton1)
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         pack();
@@ -129,11 +143,15 @@ public class Feleccion2 extends javax.swing.JFrame {
         DefaultTableModel tablita = (DefaultTableModel)JTpreguntas.getModel();
         int selectedRowIndex = JTpreguntas.getSelectedRow();
         String auxiliar = (String)JTpreguntas.getValueAt(JTpreguntas.getSelectedRow(), 0);
-        //new Feleccion2(stack,usuario,auxiliar).setVisible(true);
+        new Faccept(stack,usuario,auxiliar).setVisible(true);
         dispose();
     }//GEN-LAST:event_JTpreguntasMouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
     //Se muestra por pantalla una tabla con los datos correspondientes a la pregunta
-    //para que el usuario pueda elegir una
+    //para que el usuario pueda elegir una de sus propias preguntas
     private void elegirPregunta(){ 
         ArrayList<Pregunta> preguntasD;
         preguntasD = stack.buscarMisPreguntas(stack,usuario.getNombre());
@@ -146,8 +164,9 @@ public class Feleccion2 extends javax.swing.JFrame {
             tablita.addColumn("Etiquetas");
             tablita.addColumn("Fecha publicacion");
             tablita.addColumn("Recompensa");
+            tablita.addColumn("Respuestas");
             JTpreguntas.setModel(tablita);
-            String[] dato = new String[7];
+            String[] dato = new String[8];
             for(int i = 0; i < preguntasD.size();i++){
                 Pregunta prg = preguntasD.get(i);
                 dato[0] = prg.getIdPregunta()+"";
@@ -157,6 +176,7 @@ public class Feleccion2 extends javax.swing.JFrame {
                 dato[4] = prg.getEtiquetas()+"";
                 dato[5] = prg.getFechaDePublicacion();
                 dato[6] = prg.getRecompensa()+ "";
+                dato[7] = prg.getCantidadRespuestas() +"";
                 tablita.addRow(dato);
             }
         }
@@ -211,6 +231,7 @@ public class Feleccion2 extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable JTpreguntas;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables

@@ -8,9 +8,7 @@ package LAB4_20495193_A1.controlador;
 import LAB4_20495193_A1.modelo.Pregunta;
 import LAB4_20495193_A1.modelo.Respuesta;
 import LAB4_20495193_A1.modelo.Stack;
-import java.util.ArrayList;
-import java.util.Scanner;
-import javax.swing.JOptionPane;
+import LAB4_20495193_A1.modelo.Usuario;
 
 /**
  *
@@ -18,11 +16,13 @@ import javax.swing.JOptionPane;
  */
 public class Accept {
     Stack stack;
-    Login usuario;
+    private String idPregunta;
+    private String idRespuesta;
 
-    public Accept(Stack stack, Login usuario) {
+    public Accept(Stack stack, String idPregunta, String idRespuesta) {
         this.stack = stack;
-        this.usuario = usuario;
+        this.idPregunta = idPregunta;
+        this.idRespuesta = idRespuesta;
     }
 
     public Stack getStack() {
@@ -33,49 +33,39 @@ public class Accept {
         this.stack = stack;
     }
 
-    public Login getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(Login usuario) {
-        this.usuario = usuario;
-    }
-    
-
-        /**
+    /**
      * Metodo para aceptar la respuesta a una de las preguntas del usuario
      * como resultado se cierra la pregunta y el autor de la respuesta 
      * se lleva la recompensa que tenga la pregunta acumulada hasta ese momento
      * @param stack
      * @param user 
      */
-    public void accept(Stack stack, Login user, int respuestas,int id){
-        /**
-         * Primero se genera un ArrayList de pregunta para almacenar las futuras
-         * preguntas disponibles del usuario que esten aun abiertas, si es que
-         * esta pregunta tiene 0 respuestas, se le notificara al usuario, en cambio,
-         * si la pregunta tiene respuestas estas se le mostraran al usuario
-         */
-        if(respuestas == 0){
-            JOptionPane.showMessageDialog(null, "Esta pregunta no tiene respuestas");
-        }
-        else if (respuestas >= 1){
-            for(int i = 0; i < stack.getPreguntas().size();i++){
-                //si la pregunta esta abierta entonces agregamos a preguntasDisponibles
-                if("abierta".equals(stack.getPreguntas().get(i).getEstado()) && user.getNombre().equals(stack.getPreguntas().get(i).getAutor())){
-                    if(stack.getPreguntas().get(i).getCantidadRespuestas() == 0){
-                    }
-                    //este es el caso de que la pregunta si tenga respuestas
-                    else{
-                        for(int k = 0; k < stack.getPreguntas().get(i).getCantidadRespuestas();i++){
-                            if(stack.getRespuestas().get(i).getIdPregunta() == stack.getPreguntas().get(i).getIdPregunta()){
-                                //mostrar el titulo y el autor de la pregunta
-                            }   
-                        }
-                    }
-                }
+    public void accept(){
+        int i;
+        int idP = Integer.parseInt(idPregunta);
+        int idR = Integer.parseInt(idRespuesta);
+        Pregunta prg = null;
+        Respuesta rps = null;
+        Usuario user = null;
+        for(i = 0; i < stack.getPreguntas().size();i++){
+            if(stack.getPreguntas().get(i).getIdPregunta() == idP){
+                prg = stack.getPreguntas().get(i);
             }
         }
+        for(i = 0; i < stack.getRespuestas().size();i++){
+            if(stack.getRespuestas().get(i).getIdRespuesta() == idR){
+                rps = stack.getRespuestas().get(i);
+            }
+        }
+        for(i = 0;i < stack.getUsuarios().size();i++){
+            if(stack.getUsuarios().get(i).getNombre() == null ? rps.getAutor() == null : stack.getUsuarios().get(i).getNombre().equals(rps.getAutor()))
+                user = stack.getUsuarios().get(i);
+        }
+        int recompensa = prg.getRecompensa();
+        int recompensaTotal = recompensa + user.getReputacion();
+        user.setReputacion(recompensaTotal);
+        prg.setEstado("cerrada");
+        
     }
        
 }

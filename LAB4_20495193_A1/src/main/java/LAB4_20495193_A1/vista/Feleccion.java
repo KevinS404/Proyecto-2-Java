@@ -58,6 +58,7 @@ public class Feleccion extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         JTpreguntas = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
+        JBback = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowFocusListener(new java.awt.event.WindowFocusListener() {
@@ -90,6 +91,13 @@ public class Feleccion extends javax.swing.JFrame {
 
         jLabel1.setText("Haga click en la pregunta que desea elegir:");
 
+        JBback.setText("Volver");
+        JBback.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBbackActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -98,8 +106,13 @@ public class Feleccion extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 819, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addGap(303, 303, 303)
-                .addComponent(jLabel1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(303, 303, 303)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(365, 365, 365)
+                        .addComponent(JBback)))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -108,7 +121,9 @@ public class Feleccion extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(JBback)
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         pack();
@@ -129,6 +144,10 @@ public class Feleccion extends javax.swing.JFrame {
         new Fanswer(stack,usuario,auxiliar).setVisible(true);
         dispose();
     }//GEN-LAST:event_JTpreguntasMouseClicked
+
+    private void JBbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBbackActionPerformed
+        dispose();
+    }//GEN-LAST:event_JBbackActionPerformed
     private void elegirPregunta(){
         ArrayList<Pregunta> preguntasD;
         preguntasD = stack.mostrarPregunta(stack);
@@ -193,6 +212,7 @@ public class Feleccion extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton JBback;
     private javax.swing.JTable JTpreguntas;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;

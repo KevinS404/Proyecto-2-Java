@@ -16,7 +16,7 @@ import java.util.Scanner;
 public class Pregunta {
     private static int idIncremental = 0;
     private int idPregunta;
-    private int cantidadRespuestas;
+    private int cantidadRespuestas = 0;
     private ArrayList<String> etiquetas = new ArrayList<>();
     private String titulo;
     private String contenido;
@@ -27,7 +27,7 @@ public class Pregunta {
 
 
     //constructor con id incremental
-    public Pregunta(int id, int respuesta,ArrayList<String> etiquetas, String titulo, String contenido, String fechaDePublicacion, String autor, String estado, int recompensa) {
+    public Pregunta(int id, int respuestas,ArrayList<String> etiquetas, String titulo, String contenido, String fechaDePublicacion, String autor, String estado, int recompensa) {
         idIncremental++;
         this.idPregunta = idIncremental;
         this.etiquetas = etiquetas;
@@ -37,6 +37,7 @@ public class Pregunta {
         this.autor = autor;
         this.estado = estado;
         this.recompensa = recompensa;
+        this.cantidadRespuestas = respuestas;
     }
     //Constructor auxiliar del metodo stack del cual se saca el
     public Pregunta(Stack stack, Usuario user) {

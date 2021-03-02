@@ -5,8 +5,10 @@
  */
 package LAB4_20495193_A1.vista;
 
+import LAB4_20495193_A1.controlador.Accept;
 import LAB4_20495193_A1.controlador.Login;
 import LAB4_20495193_A1.modelo.Pregunta;
+import LAB4_20495193_A1.modelo.Respuesta;
 import LAB4_20495193_A1.modelo.Stack;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -19,12 +21,14 @@ import javax.swing.table.DefaultTableModel;
 public class Faccept extends javax.swing.JFrame {
     private Stack stack;
     private Login usuario;
+    private String idPregunta;
     /**
      * Creates new form Feleccion
      */
-    public Faccept(Stack stack, Login usuario) {
+    public Faccept(Stack stack, Login usuario,String id) {
         this.stack = stack;
         this.usuario = usuario;
+        this.idPregunta = id;
         initComponents();
     }
 
@@ -59,6 +63,7 @@ public class Faccept extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         JTpreguntas = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
+        JBback = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowFocusListener(new java.awt.event.WindowFocusListener() {
@@ -91,6 +96,13 @@ public class Faccept extends javax.swing.JFrame {
 
         jLabel1.setText("Respuestas:");
 
+        JBback.setText("Volver");
+        JBback.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBbackActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -99,8 +111,13 @@ public class Faccept extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 819, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addGap(369, 369, 369)
-                .addComponent(jLabel1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(369, 369, 369)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(365, 365, 365)
+                        .addComponent(JBback)))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -109,18 +126,20 @@ public class Faccept extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(JBback)
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
-        this.elegirPregunta();
+        this.elegirRespuesta();
     }//GEN-LAST:event_formWindowGainedFocus
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        this.elegirPregunta();
+        this.elegirRespuesta();
     }//GEN-LAST:event_formWindowOpened
     //cuando el usuario presione una pregunta entonces el programa ejecutara el proceso
     //de aceptar una respuesta
@@ -128,37 +147,36 @@ public class Faccept extends javax.swing.JFrame {
         DefaultTableModel tablita = (DefaultTableModel)JTpreguntas.getModel();
         int selectedRowIndex = JTpreguntas.getSelectedRow();
         String auxiliar = (String)JTpreguntas.getValueAt(JTpreguntas.getSelectedRow(), 0);
-        //new Fanswer(stack,usuario,auxiliar).setVisible(true);
+        Accept aceptar = new Accept(stack,idPregunta,auxiliar);
+        aceptar.accept();
+        JOptionPane.showMessageDialog(null, "Respuesta aceptada");
         dispose();
     }//GEN-LAST:event_JTpreguntasMouseClicked
+
+    private void JBbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBbackActionPerformed
+        dispose();
+    }//GEN-LAST:event_JBbackActionPerformed
     //Se muestra por pantalla una tabla con los datos correspondientes a la pregunta
     //para que el usuario pueda elegir una
-    private void elegirPregunta(){ 
-        ArrayList<Pregunta> preguntasD;
-        preguntasD = stack.buscarMisPreguntas(stack,usuario.getNombre());
-        if(preguntasD.size() >= 1){
-            DefaultTableModel tablita = new DefaultTableModel();
-            tablita.addColumn("ID");
-            tablita.addColumn("Autor");
-            tablita.addColumn("Contenido");
-            tablita.addColumn("Fecha publicacion");
-            JTpreguntas.setModel(tablita);
-            String[] dato = new String[4];
-            for(int i = 0; i < preguntasD.size();i++){
-                Pregunta prg = preguntasD.get(i);
-                dato[0] = prg.getIdPregunta()+"";
-                dato[1] = prg.getAutor();
-                dato[2] = prg.getTitulo();
-                dato[3] = prg.getContenido();
-                tablita.addRow(dato);
-            }
-        }
-        else{
-            JOptionPane.showMessageDialog(null, "No tiene preguntas disponibles");
-            dispose();
-        }
-        
-    }
+    private void elegirRespuesta(){ 
+        ArrayList<Respuesta> respuestasD = new ArrayList<>();
+        respuestasD = stack.buscarRespuestas(stack,idPregunta);
+        DefaultTableModel tablita = new DefaultTableModel();
+        tablita.addColumn("ID");
+        tablita.addColumn("Autor");
+        tablita.addColumn("Contenido");
+        tablita.addColumn("Fecha publicacion");
+        JTpreguntas.setModel(tablita);
+        String[] dato = new String[4];
+        for(int i = 0; i < respuestasD.size();i++){
+            Respuesta rps = respuestasD.get(i);
+            dato[0] = rps.getIdRespuesta()+"";
+            dato[1] = rps.getAutor();
+            dato[2] = rps.getContenido();
+            dato[3] = rps.getFecha();
+            tablita.addRow(dato);
+        }           
+   }
     
     /**
      * @param args the command line arguments
@@ -203,6 +221,7 @@ public class Faccept extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton JBback;
     private javax.swing.JTable JTpreguntas;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;

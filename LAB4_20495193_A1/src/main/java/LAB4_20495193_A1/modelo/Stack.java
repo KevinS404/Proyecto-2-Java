@@ -133,7 +133,6 @@ public class Stack {
      * @return Pregunta que el usuario quiere responder o recompensar.
      */
     public Pregunta mostrarPreguntas(Stack stack){
-        
         ArrayList<Pregunta> preguntas = stack.getPreguntas();
         ArrayList<Pregunta> preguntasDisponibles = new ArrayList<>();
         System.out.println("Preguntas disponibles para responder o recompensar: \n");
@@ -153,16 +152,23 @@ public class Stack {
         Scanner aux = new Scanner(System.in);
         eleccion = aux.nextInt();
         return preguntasDisponibles.get(eleccion-1);
-  }
-        public ArrayList<Pregunta> mostrarPregunta(Stack stack){
-        
+    
+    }
+    /**
+     * Metodo que selecciona toda las preguntas con estado abierto para poder mostrarlas mediante la 
+     * interfaz grafica que las solicita, para esto primero se genera un arreglo de preguntas para
+     * poder referirse a las preguntas del stack de una manera mas comoda, se genera otro arreglo
+     * del mismo tipo para almacenar las futuras preguntas que se encuentren y asi devolver el arreglo
+     * con estas.
+     * @param stack
+     * @return 
+     */
+    public ArrayList<Pregunta> mostrarPregunta(Stack stack){
         ArrayList<Pregunta> preguntas = stack.getPreguntas();
         ArrayList<Pregunta> preguntasDisponibles = new ArrayList<>();
-        int j = 1;
         for(int i = 0; i < preguntas.size();i++){
             if("abierta".equals(preguntas.get(i).getEstado())){
                 preguntasDisponibles.add(preguntas.get(i));
-                j++;
             }
         }
         return preguntasDisponibles;
@@ -186,17 +192,38 @@ public class Stack {
     }
         return preguntaEncontrada;
     }
+    
+    public ArrayList<Respuesta> buscarRespuestas(Stack stack, String idPregunta){
+        int id = Integer.parseInt(idPregunta);
+        ArrayList<Respuesta> respuestasEncontradas = new ArrayList<>();
+        Pregunta prg = null;
+        int i,j;
+        for(i = 0; i < stack.getPreguntas().size(); i++){
+            if(stack.getPreguntas().get(i).getIdPregunta() == id){
+                prg = stack.getPreguntas().get(i);
+            }
+        }
+        for(j = 0;j < stack.getRespuestas().size();j++){
+            if(stack.getRespuestas().get(j).getIdPregunta() == id){
+                respuestasEncontradas.add(stack.getRespuestas().get(j));
+            }
+        }
+        return respuestasEncontradas;
+    }
     public ArrayList<Pregunta> buscarMisPreguntas(Stack stack,String nombre){
         ArrayList<Pregunta> preguntasEncontradas = new ArrayList<>();
         for(int i = 0; i < stack.getPreguntas().size();i++){
-            if ("abierta".equals(stack.getPreguntas().get(i).getEstado()) && (nombre == null ? stack.getPreguntas().get(i).getAutor() == null : nombre.equals(stack.getPreguntas().get(i).getAutor()))){
+            if ("abierta".equals(stack.getPreguntas().get(i).getEstado()) && (nombre == null ? stack.getPreguntas().get(i).getAutor() == null : nombre.equals(stack.getPreguntas().get(i).getAutor())) && stack.getPreguntas().get(i).getCantidadRespuestas() >=1){
                 preguntasEncontradas.add(stack.getPreguntas().get(i));
             }
     }
         return preguntasEncontradas;
     }
-    
-        public String fechita(){
+    /**
+     * Funcion auxiliar para obtener la fecha de manera automatica
+     * @return 
+     */
+    public String fechita(){
         SimpleDateFormat df = new SimpleDateFormat("dd/MM/YYYY");
         Date fecha = new Date();
         return df.format(fecha);

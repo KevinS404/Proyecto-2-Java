@@ -52,7 +52,8 @@ public class Fquestion extends javax.swing.JFrame {
         tituloP = new javax.swing.JTextField();
         contenidoP = new javax.swing.JTextField();
         JBpublicar = new javax.swing.JButton();
-        JBetiqueta = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        etiquetas = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -67,10 +68,16 @@ public class Fquestion extends javax.swing.JFrame {
             }
         });
 
-        JBetiqueta.setText("Añadir etiquetas");
-        JBetiqueta.addActionListener(new java.awt.event.ActionListener() {
+        jButton1.setText("Volver");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBetiquetaActionPerformed(evt);
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        etiquetas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                etiquetasActionPerformed(evt);
             }
         });
 
@@ -85,9 +92,9 @@ public class Fquestion extends javax.swing.JFrame {
                     .addComponent(contenidoP)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(JBpublicar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(JBetiqueta)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
+                        .addComponent(etiquetas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(21, 21, 21)))
                 .addGap(126, 126, 126))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -96,7 +103,10 @@ public class Fquestion extends javax.swing.JFrame {
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(142, 142, 142)
-                        .addComponent(jLabel2)))
+                        .addComponent(jLabel2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(173, 173, 173)
+                        .addComponent(jButton1)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -110,11 +120,13 @@ public class Fquestion extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(contenidoP, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JBpublicar)
-                    .addComponent(JBetiqueta))
-                .addContainerGap(49, Short.MAX_VALUE))
+                    .addComponent(etiquetas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
+                .addComponent(jButton1)
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         pack();
@@ -131,11 +143,13 @@ public class Fquestion extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_JBpublicarActionPerformed
 
-    private void JBetiquetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBetiquetaActionPerformed
-        // TODO add your handling code here:
-        //añadir etiquetas
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
-    }//GEN-LAST:event_JBetiquetaActionPerformed
+    private void etiquetasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_etiquetasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_etiquetasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -173,9 +187,10 @@ public class Fquestion extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton JBetiqueta;
     private javax.swing.JButton JBpublicar;
     private javax.swing.JTextField contenidoP;
+    private javax.swing.JComboBox<String> etiquetas;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JTextField tituloP;
