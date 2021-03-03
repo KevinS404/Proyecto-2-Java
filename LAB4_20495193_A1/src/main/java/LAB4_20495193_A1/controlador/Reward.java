@@ -11,8 +11,9 @@ import LAB4_20495193_A1.modelo.Usuario;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author Admin
+ * Clase que se encarga de almacenar los datos para recompensar una pregunta, para esto
+ * tiene como atributo al stack, un String para la recompensa y el usuario que la da
+ * 
  */
 public class Reward {
     Stack stack;
@@ -25,15 +26,11 @@ public class Reward {
         this.usuario = usuario;
     }
     
-     /**
-    * Metodo mediante el cual un usuario recompensa una pregunta, para esto almacena
-    * la pregunta mediante un metodo de la clase Stack el cual muestra las preguntas 
-    * disponibles y el usuario elige la pregunta, el metodo entonces retornara esta pregunta
-    * y empezara el proceso de premiacion en el cual se le dira al usuario cuanta reputacion tiene
-    * y cuanta quiere dar, si esta es menor que la reputacion que tiene entonces el programa le dira que no
-    * no tiene suficientes puntos.Si es que el usuario tiene los suficientes puntos,entonces se calculara la
- diferencia entre la reputacion actual y la que quiere premiar y se le asignara esta a la reputacion del usuario
- y la recompensa a la pregunta.
+    /**
+    * Metodo que se encarga de otorgar la recompensa a la pregunta que el usuario
+    * quiere recompensar, para esto calcula la diferencia entre la reputacion del usuario
+    * y la que quiere entregar, si esta no es menor que 0 entonces la recompensa sera entregada,
+    * pero si es menor que 0 entonces no se otorgara nada y se dira por pantalla que no fue posible
     * @param stack
     * @param user 
     * @param recompensa 

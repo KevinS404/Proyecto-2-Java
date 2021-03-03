@@ -14,14 +14,17 @@ import javax.swing.table.DefaultTableModel;
 import static javax.swing.JOptionPane.showInputDialog;
 
 /**
- *
- * @author Admin
+ * Frame que se encarga de mostrar al usuario las preguntas disponibles para recompensar
+ * y le permite hacer click en la que quiere seleccionar, tiene como atributos a un stack
+ * y el usuario que tiene sesion iniciada
+ * 
+ * 
  */
 public class Freward extends javax.swing.JFrame {
     private Stack stack;
     private Login usuario;
     /**
-     * Creates new form Feleccion
+     * constructor de la clase que recibe como parametros un stack y un usuario
      */
     public Freward(Stack stack, Login usuario) {
         this.stack = stack;
@@ -49,7 +52,6 @@ public class Freward extends javax.swing.JFrame {
         this.usuario = usuario;
     }
     
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -62,7 +64,7 @@ public class Freward extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         JTpreguntas2 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        JBback = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowFocusListener(new java.awt.event.WindowFocusListener() {
@@ -95,10 +97,10 @@ public class Freward extends javax.swing.JFrame {
 
         jLabel1.setText("Haga click en la pregunta que desea elegir:");
 
-        jButton1.setText("Volver");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        JBback.setText("Volver");
+        JBback.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                JBbackActionPerformed(evt);
             }
         });
 
@@ -116,7 +118,7 @@ public class Freward extends javax.swing.JFrame {
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(369, 369, 369)
-                        .addComponent(jButton1)))
+                        .addComponent(JBback)))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -126,13 +128,13 @@ public class Freward extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addComponent(JBback)
                 .addContainerGap(15, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
     private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
         this.elegirPregunta();
     }//GEN-LAST:event_formWindowGainedFocus
@@ -140,7 +142,15 @@ public class Freward extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         this.elegirPregunta();
     }//GEN-LAST:event_formWindowOpened
-
+    /**
+     * cuando el usuario haga click en una pregunta entonces se capturara el valor del
+     * id de la pregunta en un String, entonces se creara una ventana pequeña que le pedira
+     * al usuario ingresar el valor de la recompensa a otorgar, luego se genera una clase
+     * Reward a la cual se le pasa como parametro el stack,usuario y recompensa, luego se ejecuta
+     * el metodo reward donde se le entrega tambien el id de la pregunta. Este metodo indicara si 
+     * fue posible o no entregar la recompensa.
+     * @param evt 
+     */
     private void JTpreguntas2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTpreguntas2MouseClicked
         DefaultTableModel tablita = (DefaultTableModel)JTpreguntas2.getModel();
         int selectedRowIndex = JTpreguntas2.getSelectedRow();
@@ -150,10 +160,19 @@ public class Freward extends javax.swing.JFrame {
         recompensar.reward(stack, usuario, recompensa,eleccion);
         dispose();
     }//GEN-LAST:event_JTpreguntas2MouseClicked
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    /**
+     * Si es que el usuario presiona el boton de volver entonces se cerrara este frame
+     * y se volvera al menu de usuario.
+     * @param evt 
+     */
+    private void JBbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBbackActionPerformed
         dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_JBbackActionPerformed
+    /**
+     * Este metodo se encarga de capturar todas las preguntas que esten disponibles aun
+     * y de mostrar toda su informacion en una tabla que se genera y se le añaden columnas
+     * para cada seccion importante de la pregunta en cuestion.
+     */
     private void elegirPregunta(){
         ArrayList<Pregunta> preguntasD;
         preguntasD = stack.mostrarPregunta(stack);
@@ -219,8 +238,8 @@ public class Freward extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton JBback;
     private javax.swing.JTable JTpreguntas2;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables

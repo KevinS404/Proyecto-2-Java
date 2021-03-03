@@ -5,13 +5,14 @@
  */
 package LAB4_20495193_A1.controlador;
 
-import LAB4_20495193_A1.modelo.Pregunta;
 import LAB4_20495193_A1.modelo.Stack;
 import java.util.ArrayList;
 
 /**
- *
- * @author Admin
+ * Clase que almacena los datos de una pregunta para despues poder generar una
+ * clase Pregunta y almacenarla en el stack. Para esto recibe todos los datos que
+ * se requieren en una clase pregunta
+ * 
  */
 
 public class Ask {
@@ -114,16 +115,7 @@ public class Ask {
     
 
     /**
-     * metodo que permite a un usuario agregar una pregunta, en este caso se
-     * le pedira al usuario que primero ingrese el titulo y contenido de la pregunta
-     * seguido se le dara la opcion de elegir si quiere agregar etiquetas o no, para esto
-     * se le dan 3 opciones que se repetiran siempre y cuando no elija la tercera.
-     * La primera opcion le mostrara la lista de la cual tendra que una etiqueta y 
-     * escribir el nombre de la etiqueta que prefiera, la opcion 2 es que
-     * agregue una etiqueta propia con una descripcion de esta y finalmente la tercera 
-     * opcion es para no añadir ninguna etiqueta. Listo este proceso entonces se le pedira
-     * que ingrese la fecha de publicacion de la pregunta para luego añadir la pregunta
-     * a la lista de preguntas y mostrar por pantalla que la pregunta ya fue publicada.
+     * Metodo que se encarga de agregar la pregunta al stack con sus respectivos datos
      * @param stack
      * @param user
      * @return 

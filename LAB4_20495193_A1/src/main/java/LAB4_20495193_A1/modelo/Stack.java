@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
  * Se crea una clase llamada Stack que almacenara todas las clases nuevas
  * que se vayan creando en ArrayList para cada tipo, esta clase tiene sus respectivo
  * constructor, getters y setters. Tambien posee metodos para agregar todo los otros
- * tipos de clases a la lista que se definen en sus atributos, por lo q tiene una relacion
+ * tipos de clases a la lista que se definen en sus atributos, por lo que tiene una relacion
  * de agregacion con todas las otras clases menos main.
  * @author Kevin Silva
  */
@@ -172,7 +172,15 @@ public class Stack {
             }
         }
         return preguntasDisponibles;
-  }
+    }
+    /**
+     * Metodo que busca un usuario por su nombre en el stack,para esto se implementa un ciclo que recorre
+     * todo la lista de usuarios y compara el nombre de cada uno con el que se busca, si es que se encuentra este
+     * nombre entonces se guarda el usuario en una variable que luego se retornara
+     * @param stack
+     * @param nombre
+     * @return Usuario
+     */
     public Usuario buscarUsuario(Stack stack, String nombre){
         Usuario usuarioEncontrado = null;
         for(int i = 0; i< stack.getUsuarios().size();i++){
@@ -183,6 +191,14 @@ public class Stack {
         return usuarioEncontrado;
         
     }
+    /**
+     * Metodo que busca una pregunta por su Id, para esto se recorre toda la lista de preguntas
+     * buscando el id, si es que se llegara a encontrar la pregunta se guardara en una variable que
+     * sera retornada al final del proceso
+     * @param stack
+     * @param id
+     * @return Pregunta
+     */
     public Pregunta buscarPregunta(Stack stack,int id){
         Pregunta preguntaEncontrada = null;
         for(int i = 0; i < stack.getPreguntas().size();i++){
@@ -192,7 +208,15 @@ public class Stack {
     }
         return preguntaEncontrada;
     }
-    
+    /**
+     * Metodo que busca todas las respuestas de una pregunta, para esto se recibe el id
+     * de la pregunta, se busca la pregunta, se almacena en una variable, luego se buscan
+     * todas las respuestas que tenga el id de la pregunta de la variable para finalmente 
+     * retornar el arraylist con todas las respuestas encontradas.
+     * @param stack
+     * @param idPregunta
+     * @return 
+     */
     public ArrayList<Respuesta> buscarRespuestas(Stack stack, String idPregunta){
         int id = Integer.parseInt(idPregunta);
         ArrayList<Respuesta> respuestasEncontradas = new ArrayList<>();
@@ -210,6 +234,14 @@ public class Stack {
         }
         return respuestasEncontradas;
     }
+    /**
+     * Metodo que se encarga de buscar todas las preguntas de un usuario, para esto
+     * se recibe un string con el nombre del usuario y se busca en el stack todas las preguntas
+     * que tengan este nombre como autor
+     * @param stack
+     * @param nombre
+     * @return 
+     */
     public ArrayList<Pregunta> buscarMisPreguntas(Stack stack,String nombre){
         ArrayList<Pregunta> preguntasEncontradas = new ArrayList<>();
         for(int i = 0; i < stack.getPreguntas().size();i++){
@@ -221,7 +253,7 @@ public class Stack {
     }
     /**
      * Funcion auxiliar para obtener la fecha de manera automatica
-     * @return 
+     * @return String
      */
     public String fechita(){
         SimpleDateFormat df = new SimpleDateFormat("dd/MM/YYYY");

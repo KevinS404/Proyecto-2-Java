@@ -12,14 +12,17 @@ import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
 /**
- *
- * @author Admin
+ * Frame que se encarga de la eleccion de una pregunta para que el usuario
+ * con sesion iniciada pueda responderla, tiene como atributos un stack y un
+ * usuario
+ * 
  */
 public class Feleccion extends javax.swing.JFrame {
     private Stack stack;
     private Login usuario;
     /**
-     * Creates new form Feleccion
+     * Constructor de la clase que recibe como paramatros un stack
+     * y al usuario con sesion iniciada
      */
     public Feleccion(Stack stack, Login usuario) {
         this.stack = stack;
@@ -136,7 +139,12 @@ public class Feleccion extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         this.elegirPregunta();
     }//GEN-LAST:event_formWindowOpened
-
+    /**
+     * Cuando el usuario haga click en una de las preguntas entonces se guardara 
+     * el id de la pregunta en un String auxiliar que luego sera pasado en la creacion
+     * de un nuevo frame que permitira escribir una respuesta para esta pregunta
+     * @param evt 
+     */
     private void JTpreguntasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTpreguntasMouseClicked
         DefaultTableModel tablita = (DefaultTableModel)JTpreguntas.getModel();
         int selectedRowIndex = JTpreguntas.getSelectedRow();
@@ -144,10 +152,19 @@ public class Feleccion extends javax.swing.JFrame {
         new Fanswer(stack,usuario,auxiliar).setVisible(true);
         dispose();
     }//GEN-LAST:event_JTpreguntasMouseClicked
-
+    /**
+    * Si es que el usuario presiona el boton de volver entonces se cerrara este frame
+    * y se volvera al menu de usuario.
+    * @param evt 
+    */
     private void JBbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBbackActionPerformed
         dispose();
     }//GEN-LAST:event_JBbackActionPerformed
+    /**
+    * Este metodo se encarga de capturar todas las preguntas que esten disponibles aun
+    * y de mostrar toda su informacion en una tabla que se genera y se le añaden columnas
+    * para cada seccion importante de la pregunta en cuestion.
+    */
     private void elegirPregunta(){
         ArrayList<Pregunta> preguntasD;
         preguntasD = stack.mostrarPregunta(stack);

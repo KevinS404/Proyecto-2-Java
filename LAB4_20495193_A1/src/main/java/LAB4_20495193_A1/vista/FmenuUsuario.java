@@ -5,21 +5,22 @@
  */
 package LAB4_20495193_A1.vista;
 
-import LAB4_20495193_A1.controlador.Ask;
 import LAB4_20495193_A1.controlador.Login;
-import LAB4_20495193_A1.modelo.Pregunta;
 import LAB4_20495193_A1.modelo.Stack;
 import javax.swing.JOptionPane;
 
 /**
- *
+ * Frame que se genera si es que algun usuario pudo iniciar sesion,
+ * esta clase recibe como atributos al usuario y el stack con el que se
+ * esta trabajando
  * @author Admin
  */
 public class FmenuUsuario extends javax.swing.JFrame {
     Login usuario;
     Stack stack;
     /**
-     * Creates new form FmenuUsuario
+     * constructor de la clase que recibe como atributos al usuario
+     * que inicio sesion y al stack
      */
     public FmenuUsuario(Login usuario,Stack stack) {
         initComponents();
@@ -137,31 +138,55 @@ public class FmenuUsuario extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    //Boton que esta ligado al cierre de sesion del usuario
+    /**
+     * Boton que esta ligado al cierre de sesion del usuario. si es que
+     * el usuario lo presiona entonces se cierra este frame, se le indica por pantalla 
+     * al usuario que cerro sesion y se vuelve al menu principal
+     * @param evt 
+     */
     private void JBlogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBlogoutActionPerformed
-        // TODO add your handling code here:
+        
         JOptionPane.showMessageDialog(null, "Sesion cerrada");
         dispose();
     }//GEN-LAST:event_JBlogoutActionPerformed
-    //Si el usuario elige salir del programa entonces se paran todos los procesos
+    /**
+     * Si el usuario elige salir del programa entonces se paran todos los procesos
+     * y se cierra todo 
+     * @param evt 
+     */
     private void JBexitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBexitActionPerformed
-        // TODO add your handling code here:
+        
         System.exit(0);
     }//GEN-LAST:event_JBexitActionPerformed
-
+    /**
+     * Boton ligado a la funcionalidad ask para que el usuario pueda añadir una pregunta
+     * @param evt 
+     */
     private void JBaddPreguntaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBaddPreguntaActionPerformed
-        // TODO add your handling code here:
+        
         new Fquestion(stack,usuario).setVisible(true);
     }//GEN-LAST:event_JBaddPreguntaActionPerformed
-
+    /**
+     * Boton ligado a la funcionalidad answer para que el usuario pueda añadir una 
+     * respuesta a una pregunta que el elija.
+     * @param evt 
+     */
     private void JBanswerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBanswerActionPerformed
         new Feleccion(stack,usuario).setVisible(true);
     }//GEN-LAST:event_JBanswerActionPerformed
-
+    /**
+     * Boton ligado a la funcionalidad reward para que el usuario pueda premiar 
+     * una pregunta que aun este disponible para responder
+     * @param evt 
+     */
     private void JBrewardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBrewardActionPerformed
         new Freward(stack,usuario).setVisible(true);
     }//GEN-LAST:event_JBrewardActionPerformed
-
+    /**
+     * Boton ligado a la funcionalidad accept para que el usuario pueda aceptar
+     * una respuesta a alguna de las preguntas, si es que es posible.
+     * @param evt 
+     */
     private void JBacceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBacceptActionPerformed
         new Feleccion2(stack,usuario).setVisible(true);
     }//GEN-LAST:event_JBacceptActionPerformed

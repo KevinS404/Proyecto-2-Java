@@ -131,7 +131,15 @@ public class Fquestion extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * Si es que el usuario presiona el boton de publicar pregunta entonces
+     * se captura lo escrito en los campos en 2 strings, se guarda la fecha de 
+     * publicacion en un string con la ayuda de un metodo de la clase Stack,
+     * se genera una clase Ask a la cual se le pasan todos estos datos, luego
+     * se ejecuta el metodo ask para poder agregar la pregunta al stack. Finalmente 
+     * se muestra un mensaje de que la pregunta fue publicada y se cierra el fram
+     * @param evt 
+     */
     private void JBpublicarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBpublicarActionPerformed
         // TODO add your handling code here:
         String titulo = tituloP.getText();
@@ -142,13 +150,20 @@ public class Fquestion extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "Pregunta publicada");
         dispose();
     }//GEN-LAST:event_JBpublicarActionPerformed
-
+    /**
+    * Si es que el usuario presiona el boton de volver entonces se cerrara este frame
+    * y se volvera al menu de usuario.
+    * @param evt 
+    */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    /**
+     * Con esta lista el usuario puede elegir una etiqueta para la pregunta
+     * @param evt 
+     */
     private void etiquetasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_etiquetasActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_etiquetasActionPerformed
 
     /**

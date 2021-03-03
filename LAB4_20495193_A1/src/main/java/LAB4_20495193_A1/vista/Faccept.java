@@ -7,7 +7,6 @@ package LAB4_20495193_A1.vista;
 
 import LAB4_20495193_A1.controlador.Accept;
 import LAB4_20495193_A1.controlador.Login;
-import LAB4_20495193_A1.modelo.Pregunta;
 import LAB4_20495193_A1.modelo.Respuesta;
 import LAB4_20495193_A1.modelo.Stack;
 import java.util.ArrayList;
@@ -15,15 +14,18 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
- *
- * @author Admin
+ *Frame que se encarga de la eleccion de una respuesta que se quiera aceptar,
+ * tiene como atributos al stack, el usuario con sesion iniciada y el id de la
+ * pregunta
+ * 
  */
 public class Faccept extends javax.swing.JFrame {
     private Stack stack;
     private Login usuario;
     private String idPregunta;
     /**
-     * Creates new form Feleccion
+     * Constructor que recibe como parametros el stack, el usuario y el id de
+     * la pregunta
      */
     public Faccept(Stack stack, Login usuario,String id) {
         this.stack = stack;
@@ -61,7 +63,7 @@ public class Faccept extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        JTpreguntas = new javax.swing.JTable();
+        JTrespuestas = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         JBback = new javax.swing.JButton();
 
@@ -79,7 +81,7 @@ public class Faccept extends javax.swing.JFrame {
             }
         });
 
-        JTpreguntas.setModel(new javax.swing.table.DefaultTableModel(
+        JTrespuestas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -87,14 +89,14 @@ public class Faccept extends javax.swing.JFrame {
 
             }
         ));
-        JTpreguntas.addMouseListener(new java.awt.event.MouseAdapter() {
+        JTrespuestas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                JTpreguntasMouseClicked(evt);
+                JTrespuestasMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(JTpreguntas);
+        jScrollPane1.setViewportView(JTrespuestas);
 
-        jLabel1.setText("Respuestas:");
+        jLabel1.setText("Seleccione la respuesta que quiere aceptar:");
 
         JBback.setText("Volver");
         JBback.addActionListener(new java.awt.event.ActionListener() {
@@ -113,11 +115,11 @@ public class Faccept extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(369, 369, 369)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(365, 365, 365)
-                        .addComponent(JBback)))
+                        .addComponent(JBback))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(285, 285, 285)
+                        .addComponent(jLabel1)))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -141,18 +143,28 @@ public class Faccept extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         this.elegirRespuesta();
     }//GEN-LAST:event_formWindowOpened
-    //cuando el usuario presione una pregunta entonces el programa ejecutara el proceso
-    //de aceptar una respuesta
-    private void JTpreguntasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTpreguntasMouseClicked
-        DefaultTableModel tablita = (DefaultTableModel)JTpreguntas.getModel();
-        int selectedRowIndex = JTpreguntas.getSelectedRow();
-        String auxiliar = (String)JTpreguntas.getValueAt(JTpreguntas.getSelectedRow(), 0);
+    /**
+    * Cuando el usuario presione una respuesta entonces el programa ejecutara el proceso
+    * de aceptar una respuesta. Para esto se captura el id de la pregunta en un String que
+    * se le pasa como parametro a la creacion de una nueva clase Accept, luego se ejecuta el 
+    * metodo accept que se encarga de cerra el estado de la pregunta y otorgar la recompensa de
+    * esta al usuario autor de la respuesta
+    * @param evt 
+    */
+    private void JTrespuestasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTrespuestasMouseClicked
+        DefaultTableModel tablita = (DefaultTableModel)JTrespuestas.getModel();
+        int selectedRowIndex = JTrespuestas.getSelectedRow();
+        String auxiliar = (String)JTrespuestas.getValueAt(JTrespuestas.getSelectedRow(), 0);
         Accept aceptar = new Accept(stack,idPregunta,auxiliar);
         aceptar.accept();
         JOptionPane.showMessageDialog(null, "Respuesta aceptada");
         dispose();
-    }//GEN-LAST:event_JTpreguntasMouseClicked
-
+    }//GEN-LAST:event_JTrespuestasMouseClicked
+     /**
+    * Si es que el usuario presiona el boton de volver entonces se cerrara este frame
+    * y se volvera al menu de usuario.
+    * @param evt 
+    */
     private void JBbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBbackActionPerformed
         dispose();
     }//GEN-LAST:event_JBbackActionPerformed
@@ -166,7 +178,7 @@ public class Faccept extends javax.swing.JFrame {
         tablita.addColumn("Autor");
         tablita.addColumn("Contenido");
         tablita.addColumn("Fecha publicacion");
-        JTpreguntas.setModel(tablita);
+        JTrespuestas.setModel(tablita);
         String[] dato = new String[4];
         for(int i = 0; i < respuestasD.size();i++){
             Respuesta rps = respuestasD.get(i);
@@ -222,7 +234,7 @@ public class Faccept extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JBback;
-    private javax.swing.JTable JTpreguntas;
+    private javax.swing.JTable JTrespuestas;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables

@@ -11,15 +11,18 @@ import LAB4_20495193_A1.modelo.Stack;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author Admin
+ * Frame que se encarga del proceso en el cual el usuario escribe una 
+ * respuesta a una pregunta, este tiene como atributos al stack, el usuario
+ * con sesion inicia y el id de la pregunta
+ * 
  */
 public class Fanswer extends javax.swing.JFrame {
     Stack stack;
     Login usuario;
     String idPregunta;
     /**
-     * Creates new form Fanswer
+     * Constructor que recibe como parametros un stack, un usuario
+     * y el id de la pregunta escogida
      */
     public Fanswer(Stack stack,Login usuario,String pregunta) {
         this.stack = stack;
@@ -105,7 +108,13 @@ public class Fanswer extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * Cuando el usuario presion el boton de enviar respuesta entonces en un String
+     * se capturara lo escrito en el campo y se creara una nueva Clase answer a la cual 
+     * se le entregara todo incluyendo el id de la pregunta, luego se ejecutara el metodo 
+     * answer que se encargara del proceso de agregacion de la respuesta al stack.
+     * @param evt 
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
             String context = Contenido.getText();
             Answer respuesta = new Answer(stack,context,usuario,idPregunta);
@@ -113,9 +122,13 @@ public class Fanswer extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Respuesta publicada");
             dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    /**
+    * Si es que el usuario presiona el boton de volver entonces se cerrara este frame
+    * y se volvera al menu de usuario.
+    * @param evt 
+    */
     private void JBbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBbackActionPerformed
-        // TODO add your handling code here:
+        
         dispose();
     }//GEN-LAST:event_JBbackActionPerformed
 

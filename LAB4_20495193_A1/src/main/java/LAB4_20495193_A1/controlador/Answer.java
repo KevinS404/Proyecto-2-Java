@@ -9,8 +9,10 @@ import LAB4_20495193_A1.modelo.Pregunta;
 import LAB4_20495193_A1.modelo.Stack;
 
 /**
- *
- * @author Admin
+ * Clase que almacena los datos de una respuesta para despues poder generar una
+ * clase Respuesta y almacenarla en el stack. Para esto recibe como atributos el id de 
+ * la pregunta, el stack, el contenido y el usuario que la publico
+ * 
  */
 
 public class Answer {
@@ -51,13 +53,11 @@ public class Answer {
         /**
      * metodo mediante el cual el usuario agrega una respuesta a una pregunta en concreto
      * para esto se le asigna a la pregunta en su variable de id de pregunta el id de esta misma
-     * y se prosigue a pedirle al usuario el contenido de la respuesta, despues se asigna al autoe de la 
+     * y se prosigue a pedirle al usuario el contenido de la respuesta, despues se asigna al autor de la 
      * respuesta el nombre del usuario que inicio este metodo, se le pide la fecha y se le indica que 
      * su respuesta fue publicada.
      * @param stack
-     * @param eleccion
      * @param contenido
-     * @param id
      * @param user
      * @return 
      */
@@ -65,16 +65,19 @@ public class Answer {
     public int answer(Stack stack, String contenido,Login user){
         Pregunta prg = null;
         int id = Integer.parseInt(idPregunta);
+        //Se almacena la pregunta en una variable
         for(int i = 0;i < stack.getPreguntas().size();i++){
             if(stack.getPreguntas().get(i).getIdPregunta() == id){
                 prg = stack.getPreguntas().get(i);
             }
         }
+        //se aumenta la cantidad de respuestas de la pregunta
         int cantidad = prg.getCantidadRespuestas();
         cantidad++;
         prg.setCantidadRespuestas(cantidad);
         int idR = stack.getRespuestas().size() + 1;
         String fechaDePublicacion = stack.fechita();
+        //se agrega la respuesta al stack con sus respectivos datos
         stack.agregarRespuesta(id,idR, user.getNombre(), fechaDePublicacion, contenido);
         return 1;
     } 

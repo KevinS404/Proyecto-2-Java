@@ -6,12 +6,12 @@
 package LAB4_20495193_A1.controlador;
 
 import LAB4_20495193_A1.modelo.Stack;
-import LAB4_20495193_A1.modelo.Usuario;
-import java.util.Scanner;
 
 /**
- *
- * @author Admin
+ * Clase que se encarga de almacenar los datos con los que un usuario inicia
+ * sesion, para esto tiene como atributos un String para el nombre y otro para
+ * la contraseña
+ * 
  */
 public class Login {
     private String nombre;
@@ -37,7 +37,13 @@ public class Login {
     public void setContrasena(String contrasena) {
         this.contrasena = contrasena;
     }
-
+    /**
+     * Metodo que verifica si el usuario existe en el stack y si los datos coinciden
+     * con los ingresados
+     * @param stackPrincipal
+     * @param user
+     * @return int
+     */
     public int login(Stack stackPrincipal,Login user){
         String nombreInicio = this.getNombre();
         String contrasenaInicio = this.getContrasena();

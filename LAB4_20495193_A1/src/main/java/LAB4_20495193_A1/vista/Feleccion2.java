@@ -137,8 +137,13 @@ public class Feleccion2 extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         this.elegirPregunta();
     }//GEN-LAST:event_formWindowOpened
-    //cuando el usuario presione una pregunta entonces el programa ejecutara el proceso
-    //de aceptar una respuesta
+    /**
+    * Cuando el usuario seleccione una pregunta entonces se iniciara el proceso 
+    * donde se conseguiran todas las respuestas de esta pregunta. Para esto se guarda
+    * el id de la pregunta en un String que se le pasara como parametro cuando se cree
+    * el frame que mostrara las respuestas
+    * @param evt 
+    */
     private void JTpreguntasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTpreguntasMouseClicked
         DefaultTableModel tablita = (DefaultTableModel)JTpreguntas.getModel();
         int selectedRowIndex = JTpreguntas.getSelectedRow();
@@ -146,12 +151,19 @@ public class Feleccion2 extends javax.swing.JFrame {
         new Faccept(stack,usuario,auxiliar).setVisible(true);
         dispose();
     }//GEN-LAST:event_JTpreguntasMouseClicked
-
+    /**
+    * Si el usuario presiona el boton de volver entonces este frame se cierra
+    * @param evt 
+    */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
-    //Se muestra por pantalla una tabla con los datos correspondientes a la pregunta
-    //para que el usuario pueda elegir una de sus propias preguntas
+    /**
+    * Este metodo se encarga de capturar todas las preguntas que esten disponibles aun
+    * y de mostrar toda su informacion en una tabla que se genera y se le añaden columnas
+    * para cada seccion importante de la pregunta en cuestion. Si es que el usuario no tuviera
+    * preguntas disponibles se le hara saber por un mensaje y se cerrara este frame
+    */
     private void elegirPregunta(){ 
         ArrayList<Pregunta> preguntasD;
         preguntasD = stack.buscarMisPreguntas(stack,usuario.getNombre());

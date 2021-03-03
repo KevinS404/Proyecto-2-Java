@@ -13,13 +13,14 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
- *
+ * Frame que se encarga de mostrar el proceso de busqueda segun el criterio
+ * del usuario, este tiene como atributo un stack para tener los datos donde consultar
  * @author Admin
  */
 public class Fsearch extends javax.swing.JFrame {
     private Stack stack;
     /**
-     * Creates new form Fsearch
+     * Constructor de la clase el cual recibe como parametro un stack
      */
     public Fsearch(Stack stack) {
         this.stack = stack;
@@ -125,7 +126,18 @@ public class Fsearch extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * Si es que el usuario presiona el boton de pregunta entonces se comenzara 
+     * el evento que tiene como criterio de busqueda las preguntas. En este caso
+     * se captura lo que el usuario escribio en el campo en un variable, luego se genera
+     * una clase Search y un arrayList de preguntas, el cual almacenara lo que encuentre
+     * el metodo search con el criterio que ingreso el usuario para las preguntas,
+     * si es que al retornar el tamaño de este array fuera 1 o mayor entonces se 
+     * genera un Frame de busqueda para que el usuario vea las preguntas encontradas.
+     * Por otro lado si el tamaño del array fuera 0 entonces se le indicara al usuario
+     * que no se encontro nada y se volvera al menu principal
+     * @param evt 
+     */
     private void JBpreguntasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBpreguntasActionPerformed
        
         String contenido = criterio.getText();
@@ -139,7 +151,18 @@ public class Fsearch extends javax.swing.JFrame {
         }
         dispose();
     }//GEN-LAST:event_JBpreguntasActionPerformed
-
+    /**
+     * Si es que el usuario presiona el boton de respuesta entonces se comenzara 
+     * el evento que tiene como criterio de busqueda las respuestas. En este caso
+     * se captura lo que el usuario escribio en el campo en un variable, luego se genera
+     * una clase Search y un arrayList de respuestas, el cual almacenara lo que encuentre
+     * el metodo search con el criterio que ingreso el usuario para las respuestas,
+     * si es que al retornar el tamaño de este array fuera 1 o mayor entonces se 
+     * genera un Frame de busqueda para que el usuario vea las respuestas encontradas.
+     * Por otro lado si el tamaño del array fuera 0 entonces se le indicara al usuario
+     * que no se encontro nada y se volvera al menu principal
+     * @param evt 
+     */
     private void JBrespuestasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBrespuestasActionPerformed
         String contenido = criterio.getText();
         Search busqueda = new Search(stack);
@@ -153,7 +176,18 @@ public class Fsearch extends javax.swing.JFrame {
         }
         dispose();
     }//GEN-LAST:event_JBrespuestasActionPerformed
-
+    /**
+     * Si es que el usuario presiona el boton de etiqueta entonces se comenzara 
+     * el evento que tiene como criterio de busqueda las etiquetas. En este caso
+     * se captura lo que el usuario escribio en el campo en un variable, luego se genera
+     * una clase Search y un arrayList de etiquetas, el cual almacenara lo que encuentre
+     * el metodo search con el criterio que ingreso el usuario para las etiquetas,
+     * si es que al retornar el tamaño de este array fuera 1 o mayor entonces se 
+     * genera un Frame de busqueda para que el usuario vea las etiquetas encontradas.
+     * Por otro lado si el tamaño del array fuera 0 entonces se le indicara al usuario
+     * que no se encontro nada y se volvera al menu principal
+     * @param evt 
+     */
     private void JBetiquetasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBetiquetasActionPerformed
         String contenido = criterio.getText();
         Search busqueda = new Search(stack);
@@ -167,7 +201,11 @@ public class Fsearch extends javax.swing.JFrame {
         }
         dispose();    
     }//GEN-LAST:event_JBetiquetasActionPerformed
-
+    /**
+     * Si es que el usuario presiona el boton de volver al menu, se cierra este frame
+     * y se vuelve al menu principal
+     * @param evt 
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed

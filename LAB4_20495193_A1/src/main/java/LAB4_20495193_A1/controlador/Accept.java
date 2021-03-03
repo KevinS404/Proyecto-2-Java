@@ -11,8 +11,10 @@ import LAB4_20495193_A1.modelo.Stack;
 import LAB4_20495193_A1.modelo.Usuario;
 
 /**
- *
- * @author Admin
+ * Clase que almacena los datos de la pregunta de la cual se acepta una respuesta
+ * para esto tiene como atributo a stack y 2 strings correspondientes a los ids de la
+ * pregunta y respuesta
+ * 
  */
 public class Accept {
     Stack stack;
@@ -47,16 +49,19 @@ public class Accept {
         Pregunta prg = null;
         Respuesta rps = null;
         Usuario user = null;
+        //Se almacena la pregunta en una variable
         for(i = 0; i < stack.getPreguntas().size();i++){
             if(stack.getPreguntas().get(i).getIdPregunta() == idP){
                 prg = stack.getPreguntas().get(i);
             }
         }
+        //Se almacena la respuesta en una variable
         for(i = 0; i < stack.getRespuestas().size();i++){
             if(stack.getRespuestas().get(i).getIdRespuesta() == idR){
                 rps = stack.getRespuestas().get(i);
             }
         }
+        //Se almacena el usuario en una variable
         for(i = 0;i < stack.getUsuarios().size();i++){
             if(stack.getUsuarios().get(i).getNombre() == null ? rps.getAutor() == null : stack.getUsuarios().get(i).getNombre().equals(rps.getAutor()))
                 user = stack.getUsuarios().get(i);

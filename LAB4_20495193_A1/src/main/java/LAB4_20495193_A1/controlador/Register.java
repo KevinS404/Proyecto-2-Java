@@ -6,18 +6,18 @@
 package LAB4_20495193_A1.controlador;
 
 import LAB4_20495193_A1.modelo.Stack;
-import LAB4_20495193_A1.modelo.Usuario;
-import java.util.Scanner;
 
 /**
- *
- * @author Admin
+ * Clase que se encarga de almacenar todos los datos para que un usuario se
+ * registre, para esto cuenta con un String para el nombre y otro para la 
+ * contraseña
+ * 
  */
 
 public class Register {
     private String nombre;
     private String contrasena;
-    private int reputacion = 500; //por temas practicos todos inician con 500 puntos
+
 
     public Register(String nombre, String contrasena) {
         this.nombre = nombre;
@@ -41,14 +41,14 @@ public class Register {
         this.contrasena = contrasena;
     }
 
-    public int getReputacion() {
-        return reputacion;
-    }
-
-    public void setReputacion(int reputacion) {
-        this.reputacion = reputacion;
-    }
-
+    /**
+     * Metodo que verifica si es que los datos del usuario no se encuentran previamente
+     * en el stack, si es que este es el caso devolvera un 0, pero si no entonces devolvera
+     * un 1 y el usuario se guardara en el stack.
+     * @param stackPrincipal
+     * @param user
+     * @return int
+     */
     public int register(Stack stackPrincipal,Register user){
         String nombreRegistro = this.getNombre();
         String contrasenaRegistro = this.getContrasena();
@@ -65,7 +65,6 @@ public class Register {
         if(verificador == 1){
             this.nombre = nombreRegistro;
             this.contrasena = contrasenaRegistro;
-            this.reputacion = 500;
             //agregamos al usuario a la lista con una reputacion inicial de 500 puntos
             stackPrincipal.agregarUsuario(nombreRegistro, contrasenaRegistro, 500);
         }

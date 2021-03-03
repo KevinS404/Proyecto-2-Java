@@ -11,8 +11,9 @@ import LAB4_20495193_A1.modelo.Stack;
 import java.util.ArrayList;
 
 /**
- *
- * @author Admin
+ * Clase que se encarga de guardar los datos de lo que busca el usuario cuando 
+ * usa esta funcionalidad
+ * 
  */
 public class Search {
     private Stack stack;
@@ -23,20 +24,13 @@ public class Search {
     
     
      /**
-     * Metodo que se encarga de buscar en el stack una pregunta o respuesta mediante
-     * un criterio a eleccion y un String con los caracteres buscados que se le pediran
-     * ingresar por teclado al usuario en Main.
+     * Metodo que se encarga de buscar en el stack una pregunta de
+     * un String con los caracteres buscados que se le pediran
+     * ingresar por teclado al usuario.
      * @param stack
-     * @param criterio
      * @param busqueda 
      */
     public ArrayList<Pregunta> search1(Stack stack,String busqueda){
-        /**
-         * Si se escoge el primer criterio entonces buscaremos en las preguntas con un ciclo
-         * que evaluara si es que la pregunta contiene al string de busqueda en su titulo o en su contenido
-         * si es que esto ocurre mostrara por pantalla el contenido de la pregunta correspondiente al titulo
-         * autor, contenido y etiquetas.
-         */
         ArrayList<Pregunta> preguntasEncontradas = new ArrayList<>();
         for(int i  = 0;i <stack.getPreguntas().size();i++){
             //si la pregunta contiene el criterio en su titulo o en su contenido entonces le mostramos al usuario esto
@@ -46,33 +40,37 @@ public class Search {
             }
         return preguntasEncontradas;
     }
-        public ArrayList<Respuesta> search2(Stack stack,String busqueda){
-        /**
-         * Si se escoge el primer criterio entonces buscaremos en las preguntas con un ciclo
-         * que evaluara si es que la pregunta contiene al string de busqueda en su titulo o en su contenido
-         * si es que esto ocurre mostrara por pantalla el contenido de la pregunta correspondiente al titulo
-         * autor, contenido y etiquetas.
-         */
+    /**
+     * Metodo que se encarga de buscar en el stack una respuesta de
+     * un String con los caracteres buscados que se le pediran
+     * ingresar por teclado al usuario.
+     * @param stack
+     * @param busqueda
+     * @return 
+     */
+    public ArrayList<Respuesta> search2(Stack stack,String busqueda){
+
         ArrayList<Respuesta> respuestasEncontradas = new ArrayList<>();
         for(int i  = 0;i <stack.getRespuestas().size();i++){
-            //si la pregunta contiene el criterio en su titulo o en su contenido entonces le mostramos al usuario esto
+            //si la respuesta contiene el criterio en su contenido entonces le mostramos al usuario esto
             if(stack.getRespuestas().get(i).getContenido().contains(busqueda)){
                     respuestasEncontradas.add(stack.getRespuestas().get(i));
                 }
             }
         return respuestasEncontradas;
     }
-       public ArrayList<ArrayList<String>>  search3(Stack stack,String busqueda){
-        /**
-         * Si se escoge el primer criterio entonces buscaremos en las preguntas con un ciclo
-         * que evaluara si es que la pregunta contiene al string de busqueda en su titulo o en su contenido
-         * si es que esto ocurre mostrara por pantalla el contenido de la pregunta correspondiente al titulo
-         * autor, contenido y etiquetas.
-         */
-        
+     /**
+     * Metodo que se encarga de buscar en el stack una respuesta de
+     * un String con los caracteres buscados que se le pediran
+     * ingresar por teclado al usuario.
+     * @param stack
+     * @param busqueda
+     * @return 
+     */
+     public ArrayList<ArrayList<String>>  search3(Stack stack,String busqueda){
         ArrayList<ArrayList<String>> etiquetasEncontradas = new ArrayList<>();
         for(int i  = 0;i <stack.getEtiquetas().size();i++){
-            //si la pregunta contiene el criterio en su titulo o en su contenido entonces le mostramos al usuario esto
+            
             if(stack.getEtiquetas().get(i).get(0).contains(busqueda) || stack.getEtiquetas().get(i).get(1).contains(busqueda)){
                     etiquetasEncontradas.add(stack.getEtiquetas().get(i));
                 }

@@ -10,13 +10,15 @@ import LAB4_20495193_A1.modelo.Stack;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author Admin
+ * Frame mediante el cual un usuario inicia sesion si con los datos
+ * correspondientes. Esta clase tiene como atributo a una clase Stack
+ * que recibe como parametro
+ * 
  */
 public class FInicioSesion extends javax.swing.JFrame {
     Stack stack;
     /**
-     * Creates new form FInicioSesion
+     * Constructor de la clase en la cual se recibe un stack como parametro
      * @param stackPrincipal
      */
     public FInicioSesion(Stack stackPrincipal) {
@@ -28,8 +30,6 @@ public class FInicioSesion extends javax.swing.JFrame {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-
-
     public Stack getStack() {
         return stack;
     }
@@ -38,7 +38,6 @@ public class FInicioSesion extends javax.swing.JFrame {
         this.stack = stack;
     }
             
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -81,18 +80,19 @@ public class FInicioSesion extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(131, 131, 131)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(JBback)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(JBlogIn)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(varNom)
-                            .addComponent(varCon)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(17, 17, 17)
-                                .addComponent(jLabel2)))))
-                .addContainerGap(166, Short.MAX_VALUE))
+                                .addComponent(jLabel2))
+                            .addComponent(varNom, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(JBlogIn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(varCon)
+                    .addComponent(JBback, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(156, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -114,17 +114,24 @@ public class FInicioSesion extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * Evento que se ejecuta si es que el usuario presiona el boton de iniciar sesion,de ser
+     * este el caso entonces se guardan las entradas de los campos donde el usuario puso
+     * el nombre y la contraseña, luego se genera una clase Login la cual tiene el metodo login
+     * que devuelve un numero como verificador. Si este verificador fuera 1 entonces el usuario 
+     * pudo iniciar sesion, pero si este fuera 0 entonces se le indicara al usuario que los datos
+     * son incorrectos y volvera al menu principal
+     * @param evt 
+     */
     private void JBlogInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBlogInActionPerformed
-        // TODO add your handling code here:
-                // TODO add your handling code here:
+
         String nombre = varNom.getText();
         String contrasena = varCon.getText();
         Login usuario = new Login(nombre,contrasena);
-        Stack stackPrincipal = getStack();
         //verificador del inicio exitoso o no del usuario
-        int ver = usuario.login(stackPrincipal , usuario);
-        //Inicio existoso
+        int ver = usuario.login(stack , usuario);
+        //Inicio existoso, en este caso se genera un menu de usuario nuevo con el usuario
+        //que tiene la sesion iniciada y el stack
         if(ver == 1){   
             dispose();
             JOptionPane.showMessageDialog(null, "Sesion iniciada");
@@ -136,10 +143,13 @@ public class FInicioSesion extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Datos incorrectos");
         }
     }//GEN-LAST:event_JBlogInActionPerformed
-
+    /**
+     * Si es que el usuario presionara el boton de volver entonces cerramos este frame y
+     * volvemos al menu principal
+     * @param evt 
+     */
     private void JBbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBbackActionPerformed
-
-        dispose();
+         dispose();
     }//GEN-LAST:event_JBbackActionPerformed
 
     /**

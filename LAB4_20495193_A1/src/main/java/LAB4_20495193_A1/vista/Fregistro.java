@@ -12,14 +12,16 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 /**
- *
+ * Este frame se encarga del proceso de registro de un usuario nuevo,
+ * recibe como parametro el stack con los datos del programa
  * @author Admin
  */
 public class Fregistro extends javax.swing.JFrame {
     Stack stack;
     
     /**
-     * Creates new form REGISTRO
+     * Constructor de la clase, la cual recibe como atributo una clase 
+     * Stack para almacenar los datos
      */
     public Fregistro(Stack stackPrincipal) {
         this.stack = stackPrincipal;
@@ -125,9 +127,18 @@ public class Fregistro extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * si es que el usuario presiona el boton de registrarse entonces se capturan los
+     * datos que se escribieron en los campos respectivos a nombre y contraseña, luego
+     * se genera una nueva clase Register donde se le entregan como parametros los 2 
+     * datos antes capturados, luego se ejecuta el metodo register de esta clase el cual
+     * devuelve un numero como verificador. En el caso de que este numero fuera 1 entonces
+     * se considera que el usuario si pudo registrarse, por el contrario si fuera 0 entonces
+     * el usuario ya estaba registrado, lo cual se indicara por pantalla y hara que se vuelva al menu principal
+     * @param evt 
+     */
     private void JBregistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBregistroActionPerformed
-        // TODO add your handling code here:
+        
         String nombre = varNombre.getText();
         String contrasena = varContrasena.getText();
         Stack stackPrincipal = getStack();
@@ -146,7 +157,11 @@ public class Fregistro extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_JBregistroActionPerformed
-
+    /**
+     * Si es que el usuario presionara el boton de volver entonces se terminara este proceso y
+     * se volvera al menu principal
+     * @param evt 
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed

@@ -9,7 +9,10 @@ import LAB4_20495193_A1.modelo.Stack;
 import java.util.ArrayList;
 
 /**
- *
+ * frame que se encarga de mostrar el menu principal donde estaran como opciones
+ * las opciones de registrarse, iniciar sesion, buscar o salir. cuando se crea esta clase
+ * se crea junto a un stack con usuarios,preguntas y respuestas de ejemplo para probar
+ * las funcionalidades del programa
  * @author Admin
  */
 public class MainMenu extends javax.swing.JFrame {
@@ -17,7 +20,8 @@ public class MainMenu extends javax.swing.JFrame {
     Stack stackPrincipal;
 
     /**
-     * Creates new form MainMenu
+     * constructor del frame junto al stack que servira como la base de datos
+     * del programa
      */
     public MainMenu() {
         this.stackPrincipal = new Stack();
@@ -142,26 +146,42 @@ public class MainMenu extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * Si el usuario presionara el boton de registro entonces comenzara el evento 
+     * que lleva el proceso de registro
+     * @param evt 
+     */
     private void JBregisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBregisterActionPerformed
-        // TODO add your handling code here:
+        
         Fregistro nuevo = new Fregistro(stackPrincipal);
         nuevo.setVisible(true);
     }//GEN-LAST:event_JBregisterActionPerformed
-
+    /**
+    * Si el usuario presionara el boton de iniciar sesion entonces comenzara el evento 
+    * que lleva el proceso de inicio de sesion
+    * @param evt 
+    */
     private void JBloginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBloginActionPerformed
-        // TODO add your handling code here:
+        
         FInicioSesion iniciar = new FInicioSesion(stackPrincipal);
         iniciar.setVisible(true);
     }//GEN-LAST:event_JBloginActionPerformed
-
+    /**
+     * Si el usuario presiona el boton Salir entonces el menu se cerrara y el programa
+     * se detendra
+     * @param evt 
+     */
     private void JBexitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBexitActionPerformed
-        // TODO add your handling code here:
+        
         dispose();
     }//GEN-LAST:event_JBexitActionPerformed
-
+    /**
+     * Si el usuario presiona el boton de search entonces comenzara el evento que
+     * lleva el proceso de busqueda.
+     * @param evt 
+     */
     private void JBsearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBsearchActionPerformed
-        // TODO add your handling code here:
+        
         new Fsearch(stackPrincipal).setVisible(true);
     }//GEN-LAST:event_JBsearchActionPerformed
 

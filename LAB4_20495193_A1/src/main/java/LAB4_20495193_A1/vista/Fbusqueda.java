@@ -12,8 +12,11 @@ import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
 /**
- *
- * @author Admin
+ * Frame que se encarga de mostrar lo que haya encontrado el programa segun el 
+ * criterio que escogio el usuario, tiene como atributos al stack, un verificador para
+ * saber que tipo de tabla mostrar y 3 arrayList correspondientess a respuestas,preguntas y 
+ * etiquetas 
+ * 
  */
 public class Fbusqueda extends javax.swing.JFrame {
     private Stack stack;
@@ -22,7 +25,7 @@ public class Fbusqueda extends javax.swing.JFrame {
     private ArrayList<Pregunta> preguntas;
     ArrayList<ArrayList<String>> etiquetas;
     /**
-     * Creates new form Feleccion
+     * Constructor que recibe como parametros un stack, un numero y 3 arraylist
      */
     public Fbusqueda(Stack stack, int verificador, ArrayList<Respuesta> respuestas, ArrayList<Pregunta> preguntas,ArrayList<ArrayList<String>> etiquetas) {
         this.stack = stack;
@@ -55,7 +58,7 @@ public class Fbusqueda extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        JTpreguntas = new javax.swing.JTable();
+        JTopciones = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         JBback = new javax.swing.JButton();
 
@@ -73,7 +76,7 @@ public class Fbusqueda extends javax.swing.JFrame {
             }
         });
 
-        JTpreguntas.setModel(new javax.swing.table.DefaultTableModel(
+        JTopciones.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -81,12 +84,12 @@ public class Fbusqueda extends javax.swing.JFrame {
 
             }
         ));
-        JTpreguntas.addMouseListener(new java.awt.event.MouseAdapter() {
+        JTopciones.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                JTpreguntasMouseClicked(evt);
+                JTopcionesMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(JTpreguntas);
+        jScrollPane1.setViewportView(JTopciones);
 
         jLabel1.setText("Resultado de la busqueda:");
 
@@ -135,18 +138,30 @@ public class Fbusqueda extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         this.elegirPregunta();
     }//GEN-LAST:event_formWindowOpened
-
-    private void JTpreguntasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTpreguntasMouseClicked
-        DefaultTableModel tablita = (DefaultTableModel)JTpreguntas.getModel();
-        int selectedRowIndex = JTpreguntas.getSelectedRow();
-        String auxiliar = (String)JTpreguntas.getValueAt(JTpreguntas.getSelectedRow(), 0);
+    
+    private void JTopcionesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTopcionesMouseClicked
+        DefaultTableModel tablita = (DefaultTableModel)JTopciones.getModel();
+        int selectedRowIndex = JTopciones.getSelectedRow();
+        String auxiliar = (String)JTopciones.getValueAt(JTopciones.getSelectedRow(), 0);
         dispose();
-    }//GEN-LAST:event_JTpreguntasMouseClicked
+    }//GEN-LAST:event_JTopcionesMouseClicked
 
+    /**
+    * Si es que el usuario presiona el boton de volver entonces se cerrara este frame
+    * y se volvera al menu de usuario.
+    * @param evt 
+    */
     private void JBbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBbackActionPerformed
         // TODO add your handling code here:
         dispose();
     }//GEN-LAST:event_JBbackActionPerformed
+   /**
+    * Este metodo se encarga de capturar todas las preguntas,etiquetas o respuestas que esten disponibles aun
+    * y de mostrar toda su informacion en una tabla que se genera y se le añaden columnas
+    * para cada seccion importante del criterio en cuestion. EN el caso de que el verificador fuera un 1
+    * entonces se mostrara una tabla para preguntas, si fuera un 2 sera una tabla para respuestas y si fuera
+    * un 3 entonces una tabla para etiquetas
+    */
     private void elegirPregunta(){
         if(verificador == 1){
             DefaultTableModel tablita = new DefaultTableModel();
@@ -157,7 +172,7 @@ public class Fbusqueda extends javax.swing.JFrame {
             tablita.addColumn("Etiquetas");
             tablita.addColumn("Fecha publicacion");
             tablita.addColumn("Recompensa");
-            JTpreguntas.setModel(tablita);
+            JTopciones.setModel(tablita);
             String[] dato = new String[7];
             for(int i = 0; i < preguntas.size();i++){
                 Pregunta prg = preguntas.get(i);
@@ -177,7 +192,7 @@ public class Fbusqueda extends javax.swing.JFrame {
             tablita.addColumn("Autor");
             tablita.addColumn("Contenido");
             tablita.addColumn("Fecha publicacion");
-            JTpreguntas.setModel(tablita);
+            JTopciones.setModel(tablita);
             String[] dato = new String[4];
             for(int i = 0; i < respuestas.size();i++){
                 Respuesta rps = respuestas.get(i);
@@ -192,7 +207,7 @@ public class Fbusqueda extends javax.swing.JFrame {
             DefaultTableModel tablita = new DefaultTableModel();
             tablita.addColumn("Nombre etiqueta");
             tablita.addColumn("Descripcion");
-            JTpreguntas.setModel(tablita);
+            JTopciones.setModel(tablita);
             String[] dato = new String[2];
             for(int i = 0; i < etiquetas.size();i++){
                 
@@ -242,7 +257,7 @@ public class Fbusqueda extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JBback;
-    private javax.swing.JTable JTpreguntas;
+    private javax.swing.JTable JTopciones;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
