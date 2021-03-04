@@ -19,6 +19,8 @@ public class Fquestion extends javax.swing.JFrame {
     Login usuario;
     /**
      * Creates new form Fquestion
+     * @param stackPrincipal
+     * @param usuario
      */
     public Fquestion(Stack stackPrincipal,Login usuario) {
         this.usuario = usuario;
@@ -52,8 +54,8 @@ public class Fquestion extends javax.swing.JFrame {
         tituloP = new javax.swing.JTextField();
         contenidoP = new javax.swing.JTextField();
         JBpublicar = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        etiquetas = new javax.swing.JComboBox<>();
+        JBback = new javax.swing.JButton();
+        JBetiquetas = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -68,16 +70,17 @@ public class Fquestion extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Volver");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        JBback.setText("Volver");
+        JBback.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                JBbackActionPerformed(evt);
             }
         });
 
-        etiquetas.addActionListener(new java.awt.event.ActionListener() {
+        JBetiquetas.setText("Agregar etiqueta");
+        JBetiquetas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                etiquetasActionPerformed(evt);
+                JBetiquetasActionPerformed(evt);
             }
         });
 
@@ -92,9 +95,8 @@ public class Fquestion extends javax.swing.JFrame {
                     .addComponent(contenidoP)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(JBpublicar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
-                        .addComponent(etiquetas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(21, 21, 21)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(JBetiquetas, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(126, 126, 126))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -106,7 +108,7 @@ public class Fquestion extends javax.swing.JFrame {
                         .addComponent(jLabel2))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(173, 173, 173)
-                        .addComponent(jButton1)))
+                        .addComponent(JBback)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -123,10 +125,10 @@ public class Fquestion extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JBpublicar)
-                    .addComponent(etiquetas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(JBetiquetas))
                 .addGap(27, 27, 27)
-                .addComponent(jButton1)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addComponent(JBback)
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         pack();
@@ -144,9 +146,9 @@ public class Fquestion extends javax.swing.JFrame {
         // TODO add your handling code here:
         String titulo = tituloP.getText();
         String contenido = contenidoP.getText();
-        String fecha = stack.fechita();
+        String fecha = stack.fecha();
         Ask pregunta = new Ask(titulo,contenido,fecha);
-        pregunta.ask(stack, usuario);
+        pregunta.ask(stack, usuario,null);
         JOptionPane.showMessageDialog(null, "Pregunta publicada");
         dispose();
     }//GEN-LAST:event_JBpublicarActionPerformed
@@ -155,16 +157,17 @@ public class Fquestion extends javax.swing.JFrame {
     * y se volvera al menu de usuario.
     * @param evt 
     */
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void JBbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBbackActionPerformed
         dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
-    /**
-     * Con esta lista el usuario puede elegir una etiqueta para la pregunta
-     * @param evt 
-     */
-    private void etiquetasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_etiquetasActionPerformed
-        
-    }//GEN-LAST:event_etiquetasActionPerformed
+    }//GEN-LAST:event_JBbackActionPerformed
+
+    private void JBetiquetasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBetiquetasActionPerformed
+        String titulo = tituloP.getText();
+        String contenido = contenidoP.getText();
+        String fecha = stack.fecha();
+        new Fetiquetas(stack,usuario,titulo,contenido,fecha).setVisible(true);
+        dispose();
+    }//GEN-LAST:event_JBetiquetasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -202,10 +205,10 @@ public class Fquestion extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton JBback;
+    private javax.swing.JButton JBetiquetas;
     private javax.swing.JButton JBpublicar;
     private javax.swing.JTextField contenidoP;
-    private javax.swing.JComboBox<String> etiquetas;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JTextField tituloP;

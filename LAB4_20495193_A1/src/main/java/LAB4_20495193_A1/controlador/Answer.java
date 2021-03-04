@@ -76,7 +76,7 @@ public class Answer {
         cantidad++;
         prg.setCantidadRespuestas(cantidad);
         int idR = stack.getRespuestas().size() + 1;
-        String fechaDePublicacion = stack.fechita();
+        String fechaDePublicacion = stack.fecha();
         //se agrega la respuesta al stack con sus respectivos datos
         stack.agregarRespuesta(id,idR, user.getNombre(), fechaDePublicacion, contenido);
         return 1;

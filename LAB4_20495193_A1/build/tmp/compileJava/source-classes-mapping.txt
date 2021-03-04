@@ -1,12 +1,63 @@
+LAB4_20495193_A1/modelo/Respuesta.java
+ LAB4_20495193_A1.modelo.Respuesta
+LAB4_20495193_A1/controlador/Reward.java
+ LAB4_20495193_A1.controlador.Reward
+LAB4_20495193_A1/vista/FmenuUsuario.java
+ LAB4_20495193_A1.vista.FmenuUsuario
+ LAB4_20495193_A1.vista.FmenuUsuario$1
+ LAB4_20495193_A1.vista.FmenuUsuario$2
+ LAB4_20495193_A1.vista.FmenuUsuario$3
+ LAB4_20495193_A1.vista.FmenuUsuario$4
+ LAB4_20495193_A1.vista.FmenuUsuario$5
+ LAB4_20495193_A1.vista.FmenuUsuario$6
+ LAB4_20495193_A1.vista.FmenuUsuario$7
+LAB4_20495193_A1/vista/Feleccion.java
+ LAB4_20495193_A1.vista.Feleccion
+ LAB4_20495193_A1.vista.Feleccion$1
+ LAB4_20495193_A1.vista.Feleccion$2
+ LAB4_20495193_A1.vista.Feleccion$3
+ LAB4_20495193_A1.vista.Feleccion$4
+ LAB4_20495193_A1.vista.Feleccion$5
+LAB4_20495193_A1/vista/Faccept.java
+ LAB4_20495193_A1.vista.Faccept
+ LAB4_20495193_A1.vista.Faccept$1
+ LAB4_20495193_A1.vista.Faccept$2
+ LAB4_20495193_A1.vista.Faccept$3
+ LAB4_20495193_A1.vista.Faccept$4
+ LAB4_20495193_A1.vista.Faccept$5
+LAB4_20495193_A1/vista/Freward.java
+ LAB4_20495193_A1.vista.Freward
+ LAB4_20495193_A1.vista.Freward$1
+ LAB4_20495193_A1.vista.Freward$2
+ LAB4_20495193_A1.vista.Freward$3
+ LAB4_20495193_A1.vista.Freward$4
+ LAB4_20495193_A1.vista.Freward$5
+LAB4_20495193_A1/modelo/Stack.java
+ LAB4_20495193_A1.modelo.Stack
+LAB4_20495193_A1/Main.java
+ LAB4_20495193_A1.Main
+LAB4_20495193_A1/modelo/Usuario.java
+ LAB4_20495193_A1.modelo.Usuario
 LAB4_20495193_A1/vista/Fetiquetas.java
  LAB4_20495193_A1.vista.Fetiquetas
  LAB4_20495193_A1.vista.Fetiquetas$1
-LAB4_20495193_A1/Main.java
- LAB4_20495193_A1.Main
-LAB4_20495193_A1/modelo/Etiqueta.java
- LAB4_20495193_A1.modelo.Etiqueta
-LAB4_20495193_A1/modelo/Respuesta.java
- LAB4_20495193_A1.modelo.Respuesta
+ LAB4_20495193_A1.vista.Fetiquetas$2
+ LAB4_20495193_A1.vista.Fetiquetas$3
+ LAB4_20495193_A1.vista.Fetiquetas$4
+ LAB4_20495193_A1.vista.Fetiquetas$5
+ LAB4_20495193_A1.vista.Fetiquetas$6
+LAB4_20495193_A1/vista/FInicioSesion.java
+ LAB4_20495193_A1.vista.FInicioSesion
+ LAB4_20495193_A1.vista.FInicioSesion$1
+ LAB4_20495193_A1.vista.FInicioSesion$2
+ LAB4_20495193_A1.vista.FInicioSesion$3
+LAB4_20495193_A1/vista/Fsearch.java
+ LAB4_20495193_A1.vista.Fsearch
+ LAB4_20495193_A1.vista.Fsearch$1
+ LAB4_20495193_A1.vista.Fsearch$2
+ LAB4_20495193_A1.vista.Fsearch$3
+ LAB4_20495193_A1.vista.Fsearch$4
+ LAB4_20495193_A1.vista.Fsearch$5
 LAB4_20495193_A1/vista/Fregistro.java
  LAB4_20495193_A1.vista.Fregistro
  LAB4_20495193_A1.vista.Fregistro$1
@@ -26,8 +77,8 @@ LAB4_20495193_A1/vista/Feleccion2.java
  LAB4_20495193_A1.vista.Feleccion2$5
 LAB4_20495193_A1/controlador/Register.java
  LAB4_20495193_A1.controlador.Register
-LAB4_20495193_A1/controlador/Reward.java
- LAB4_20495193_A1.controlador.Reward
+LAB4_20495193_A1/modelo/Etiqueta.java
+ LAB4_20495193_A1.modelo.Etiqueta
 LAB4_20495193_A1/vista/Fbusqueda.java
  LAB4_20495193_A1.vista.Fbusqueda
  LAB4_20495193_A1.vista.Fbusqueda$1
@@ -35,42 +86,10 @@ LAB4_20495193_A1/vista/Fbusqueda.java
  LAB4_20495193_A1.vista.Fbusqueda$3
  LAB4_20495193_A1.vista.Fbusqueda$4
  LAB4_20495193_A1.vista.Fbusqueda$5
-LAB4_20495193_A1/vista/FmenuUsuario.java
- LAB4_20495193_A1.vista.FmenuUsuario
- LAB4_20495193_A1.vista.FmenuUsuario$1
- LAB4_20495193_A1.vista.FmenuUsuario$2
- LAB4_20495193_A1.vista.FmenuUsuario$3
- LAB4_20495193_A1.vista.FmenuUsuario$4
- LAB4_20495193_A1.vista.FmenuUsuario$5
- LAB4_20495193_A1.vista.FmenuUsuario$6
- LAB4_20495193_A1.vista.FmenuUsuario$7
 LAB4_20495193_A1/controlador/Search.java
  LAB4_20495193_A1.controlador.Search
-LAB4_20495193_A1/vista/Feleccion.java
- LAB4_20495193_A1.vista.Feleccion
- LAB4_20495193_A1.vista.Feleccion$1
- LAB4_20495193_A1.vista.Feleccion$2
- LAB4_20495193_A1.vista.Feleccion$3
- LAB4_20495193_A1.vista.Feleccion$4
- LAB4_20495193_A1.vista.Feleccion$5
-LAB4_20495193_A1/vista/Faccept.java
- LAB4_20495193_A1.vista.Faccept
- LAB4_20495193_A1.vista.Faccept$1
- LAB4_20495193_A1.vista.Faccept$2
- LAB4_20495193_A1.vista.Faccept$3
- LAB4_20495193_A1.vista.Faccept$4
- LAB4_20495193_A1.vista.Faccept$5
 LAB4_20495193_A1/controlador/Accept.java
  LAB4_20495193_A1.controlador.Accept
-LAB4_20495193_A1/vista/Freward.java
- LAB4_20495193_A1.vista.Freward
- LAB4_20495193_A1.vista.Freward$1
- LAB4_20495193_A1.vista.Freward$2
- LAB4_20495193_A1.vista.Freward$3
- LAB4_20495193_A1.vista.Freward$4
- LAB4_20495193_A1.vista.Freward$5
-LAB4_20495193_A1/modelo/Stack.java
- LAB4_20495193_A1.modelo.Stack
 LAB4_20495193_A1/controlador/Login.java
  LAB4_20495193_A1.controlador.Login
 LAB4_20495193_A1/vista/MainMenu.java
@@ -80,17 +99,10 @@ LAB4_20495193_A1/vista/MainMenu.java
  LAB4_20495193_A1.vista.MainMenu$3
  LAB4_20495193_A1.vista.MainMenu$4
  LAB4_20495193_A1.vista.MainMenu$5
-LAB4_20495193_A1/modelo/Usuario.java
- LAB4_20495193_A1.modelo.Usuario
 LAB4_20495193_A1/modelo/Pregunta.java
  LAB4_20495193_A1.modelo.Pregunta
 LAB4_20495193_A1/controlador/Ask.java
  LAB4_20495193_A1.controlador.Ask
-LAB4_20495193_A1/vista/FInicioSesion.java
- LAB4_20495193_A1.vista.FInicioSesion
- LAB4_20495193_A1.vista.FInicioSesion$1
- LAB4_20495193_A1.vista.FInicioSesion$2
- LAB4_20495193_A1.vista.FInicioSesion$3
 LAB4_20495193_A1/controlador/Answer.java
  LAB4_20495193_A1.controlador.Answer
 LAB4_20495193_A1/vista/Fquestion.java
@@ -99,10 +111,3 @@ LAB4_20495193_A1/vista/Fquestion.java
  LAB4_20495193_A1.vista.Fquestion$2
  LAB4_20495193_A1.vista.Fquestion$3
  LAB4_20495193_A1.vista.Fquestion$4
-LAB4_20495193_A1/vista/Fsearch.java
- LAB4_20495193_A1.vista.Fsearch
- LAB4_20495193_A1.vista.Fsearch$1
- LAB4_20495193_A1.vista.Fsearch$2
- LAB4_20495193_A1.vista.Fsearch$3
- LAB4_20495193_A1.vista.Fsearch$4
- LAB4_20495193_A1.vista.Fsearch$5

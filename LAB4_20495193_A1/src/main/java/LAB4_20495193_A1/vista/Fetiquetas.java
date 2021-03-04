@@ -5,19 +5,57 @@
  */
 package LAB4_20495193_A1.vista;
 
+import LAB4_20495193_A1.controlador.Ask;
+import LAB4_20495193_A1.controlador.Login;
+import LAB4_20495193_A1.modelo.Stack;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
- *
- * @author Admin
+ * Frame que se encarga de la eleccion de una pregunta para que el usuario
+ * con sesion iniciada pueda responderla, tiene como atributos un stack y un
+ * usuario, el titulo, contenido y fecha de publicacion de la pregunta
+ * 
  */
 public class Fetiquetas extends javax.swing.JFrame {
-
+    private Stack stack;
+    private Login usuario;
+    private String contenido;
+    private String titulo;
+    private String fecha;
     /**
-     * Creates new form Fetiquetas
+     * Constructor de la clase que recibe como paramatros un stack
+     * y al usuario con sesion iniciada junto a datos importantes de la pregunta
      */
-    public Fetiquetas() {
+    public Fetiquetas(Stack stack, Login usuario,String titulo, String contenido,String fecha) {
+        this.stack = stack;
+        this.usuario = usuario;
+        this.titulo = titulo;
+        this.contenido = contenido;
+        this.fecha = fecha;
         initComponents();
     }
 
+    private Fetiquetas() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public Stack getStack() {
+        return stack;
+    }
+
+    public void setStack(Stack stack) {
+        this.stack = stack;
+    }
+
+    public Login getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Login usuario) {
+        this.usuario = usuario;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,22 +65,197 @@ public class Fetiquetas extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        JTetiquetas = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
+        JBback = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        Fname = new javax.swing.JTextField();
+        Fdescripcion = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        JBadd = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowFocusListener(new java.awt.event.WindowFocusListener() {
+            public void windowGainedFocus(java.awt.event.WindowEvent evt) {
+                formWindowGainedFocus(evt);
+            }
+            public void windowLostFocus(java.awt.event.WindowEvent evt) {
+            }
+        });
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
+
+        JTetiquetas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        JTetiquetas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JTetiquetasMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(JTetiquetas);
+
+        jLabel1.setText("Haga click en la eitqueta que desea elegir:");
+
+        JBback.setText("Volver");
+        JBback.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBbackActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("O escriba una nueva para agregar a su pregunta");
+
+        jLabel3.setText("Nombre:");
+
+        jLabel4.setText("Descripcion:");
+
+        JBadd.setText("Agrega etiqueta y publicar pregunta");
+        JBadd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBaddActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(303, 303, 303)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(282, 282, 282)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(207, 207, 207)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(Fname, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(140, 140, 140)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addComponent(Fdescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1097, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(306, 306, 306)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(JBback, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(JBadd))))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Fname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Fdescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(JBadd)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(JBback)
+                .addGap(26, 26, 26))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
+        this.elegirPregunta();
+    }//GEN-LAST:event_formWindowGainedFocus
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        this.elegirPregunta();
+    }//GEN-LAST:event_formWindowOpened
+    /**
+     * Cuando el usuario elija una etiqueta presionandola entonces se guardar en un
+     * String el nombre de la etiqueta, se creara una nueva clase Ask donde se le pasaran
+     * los paramatros de la pregunta, luego ejecuta el metodo ask al que se le pasa el stack, el
+     * usuario y el string que guarda el nombre de la etiqueta para poder publicar la pregunta y 
+     * añadirla al stack
+     * @param evt 
+     */
+    private void JTetiquetasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTetiquetasMouseClicked
+        DefaultTableModel tablita = (DefaultTableModel)JTetiquetas.getModel();
+        int selectedRowIndex = JTetiquetas.getSelectedRow();
+        String auxiliar = (String)JTetiquetas.getValueAt(JTetiquetas.getSelectedRow(), 0);
+        
+        Ask pregunta = new Ask(titulo,contenido,fecha);
+        pregunta.ask(stack, usuario,auxiliar);
+        JOptionPane.showMessageDialog(null, "Pregunta publicada");
+        dispose();
+    }//GEN-LAST:event_JTetiquetasMouseClicked
+    /**
+    * Si es que el usuario presiona el boton de volver entonces se cerrara este frame
+    * y se volvera al menu de usuario.
+    * @param evt 
+    */
+    private void JBbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBbackActionPerformed
+        dispose();
+    }//GEN-LAST:event_JBbackActionPerformed
+    /**
+     * Si es que el usuario presiona el boton de agregar y publicar pregunta
+     * entonces se guardara en 2 string lo escrito en los campos de nombre y descripcion
+     * luego se agregara esta etiqueta al stack si es que no existe previamente, se genera
+     * una nueva clase ask a la que se le pasaran los datos de la pregunta, luego se ejecutara
+     * el metodo ask que hara que se agregue una pregunta nueva al stack con los datos de la 
+     * pregunta que quiere publicar el usuario.
+     * @param evt 
+     */
+    private void JBaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBaddActionPerformed
+        String nombre = Fname.getText();
+        String descripcion =  Fdescripcion.getText();
+        stack.agregarEtiqueta(nombre, descripcion);
+        Ask pregunta = new Ask(titulo,contenido,fecha);
+        pregunta.ask(stack, usuario,nombre);
+        JOptionPane.showMessageDialog(null, "Pregunta publicada");
+        dispose();
+    }//GEN-LAST:event_JBaddActionPerformed
+    /**
+    * Este metodo se encarga de capturar todas las preguntas que esten disponibles aun
+    * y de mostrar toda su informacion en una tabla que se genera y se le añaden columnas
+    * para cada seccion importante de la pregunta en cuestion.
+    */
+    private void elegirPregunta(){
+        ArrayList<ArrayList<String>> etiquetas  = stack.getEtiquetas();
+        DefaultTableModel tablita = new DefaultTableModel();
+        tablita.addColumn("Nombre etiqueta");
+        tablita.addColumn("Descripcion");
+        JTetiquetas.setModel(tablita);
+        String[] dato = new String[2];
+            for(int i = 0; i < etiquetas.size();i++){
+                dato[0] = etiquetas.get(i).get(0);
+                dato[1] = etiquetas.get(i).get(1);
+                tablita.addRow(dato);
+            }
+        }
+        
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -69,6 +282,7 @@ public class Fetiquetas extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Fetiquetas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -79,5 +293,15 @@ public class Fetiquetas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField Fdescripcion;
+    private javax.swing.JTextField Fname;
+    private javax.swing.JButton JBadd;
+    private javax.swing.JButton JBback;
+    private javax.swing.JTable JTetiquetas;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

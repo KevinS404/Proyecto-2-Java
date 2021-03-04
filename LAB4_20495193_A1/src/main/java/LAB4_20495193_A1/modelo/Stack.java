@@ -116,9 +116,17 @@ public class Stack {
      */
     public void agregarEtiqueta(String nombreEtiqueta, String descripcion){
         ArrayList<String> etiqueta = new ArrayList<>();
-        etiqueta.add(nombreEtiqueta);
-        etiqueta.add(descripcion);
-        etiquetas.add(etiqueta);
+        int verificador = 1;
+        for(int i = 0; i < etiquetas.size();i++){
+            if(nombreEtiqueta == null ? etiquetas.get(i).get(0) == null : nombreEtiqueta.equals(etiquetas.get(i).get(0))){
+                verificador = 0;
+            }   
+        }
+        if(verificador == 1){
+            etiqueta.add(nombreEtiqueta);
+            etiqueta.add(descripcion);
+            etiquetas.add(etiqueta);
+        }
     }
     /**
      * metodo que muestra todas las preguntas del stack que este con el estado
@@ -255,7 +263,7 @@ public class Stack {
      * Funcion auxiliar para obtener la fecha de manera automatica
      * @return String
      */
-    public String fechita(){
+    public String fecha(){
         SimpleDateFormat df = new SimpleDateFormat("dd/MM/YYYY");
         Date fecha = new Date();
         return df.format(fecha);

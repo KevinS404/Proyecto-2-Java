@@ -121,16 +121,18 @@ public class Ask {
      * @return 
      */
     
-    public int ask (Stack stack, Login user){
+    public int ask (Stack stack, Login user, String etiqueta){
         String titulo = this.getTitulo();
         String contenido = this.getContenido();
         String fechaDePublicacion = this.getFechaDePublicacion();
         //String contenido = this.getContenido();
         String autor = user.getNombre();
-        String etiqueta,nombre,descripcion;
         ArrayList<String> etiquetaP = new ArrayList<>();
+        if(etiqueta != null){
+            etiquetaP.add(etiqueta);
+        }
         int idPregunta = this.getIdPregunta();
-        stack.agregarPregunta(idPregunta,0,etiquetas, titulo, contenido, fechaDePublicacion, autor, "abierta", 0);
+        stack.agregarPregunta(idPregunta,0,etiquetaP, titulo, contenido, fechaDePublicacion, autor, "abierta", 0);
        return 0;
     }
 

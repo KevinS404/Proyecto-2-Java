@@ -59,7 +59,7 @@ public class Feleccion2 extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         JTpreguntas = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        JBback = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowFocusListener(new java.awt.event.WindowFocusListener() {
@@ -92,10 +92,10 @@ public class Feleccion2 extends javax.swing.JFrame {
 
         jLabel1.setText("Tus preguntas:");
 
-        jButton1.setText("Volver");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        JBback.setText("Volver");
+        JBback.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                JBbackActionPerformed(evt);
             }
         });
 
@@ -113,7 +113,7 @@ public class Feleccion2 extends javax.swing.JFrame {
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(366, 366, 366)
-                        .addComponent(jButton1)))
+                        .addComponent(JBback)))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -123,7 +123,7 @@ public class Feleccion2 extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
+                .addComponent(JBback)
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
@@ -155,9 +155,9 @@ public class Feleccion2 extends javax.swing.JFrame {
     * Si el usuario presiona el boton de volver entonces este frame se cierra
     * @param evt 
     */
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void JBbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBbackActionPerformed
         dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_JBbackActionPerformed
     /**
     * Este metodo se encarga de capturar todas las preguntas que esten disponibles aun
     * y de mostrar toda su informacion en una tabla que se genera y se le añaden columnas
@@ -242,8 +242,8 @@ public class Feleccion2 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton JBback;
     private javax.swing.JTable JTpreguntas;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables

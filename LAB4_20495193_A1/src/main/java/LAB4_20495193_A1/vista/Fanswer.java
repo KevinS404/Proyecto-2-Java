@@ -49,16 +49,16 @@ public class Fanswer extends javax.swing.JFrame {
     private void initComponents() {
 
         Contenido = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        JABsendAnswer = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         JBback = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("Enviar respuesta");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        JABsendAnswer.setText("Enviar respuesta");
+        JABsendAnswer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                JABsendAnswerActionPerformed(evt);
             }
         });
 
@@ -87,7 +87,7 @@ public class Fanswer extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(JABsendAnswer)
                         .addGap(158, 158, 158))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(JBback)
@@ -101,7 +101,7 @@ public class Fanswer extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(Contenido, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
+                .addComponent(JABsendAnswer)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
                 .addComponent(JBback))
         );
@@ -115,20 +115,19 @@ public class Fanswer extends javax.swing.JFrame {
      * answer que se encargara del proceso de agregacion de la respuesta al stack.
      * @param evt 
      */
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void JABsendAnswerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JABsendAnswerActionPerformed
             String context = Contenido.getText();
             Answer respuesta = new Answer(stack,context,usuario,idPregunta);
             respuesta.answer(stack, context, usuario);
             JOptionPane.showMessageDialog(null, "Respuesta publicada");
             dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_JABsendAnswerActionPerformed
     /**
     * Si es que el usuario presiona el boton de volver entonces se cerrara este frame
     * y se volvera al menu de usuario.
     * @param evt 
     */
     private void JBbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBbackActionPerformed
-        
         dispose();
     }//GEN-LAST:event_JBbackActionPerformed
 
@@ -169,8 +168,8 @@ public class Fanswer extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Contenido;
+    private javax.swing.JButton JABsendAnswer;
     private javax.swing.JButton JBback;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

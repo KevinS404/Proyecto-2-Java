@@ -46,7 +46,7 @@ public class Fsearch extends javax.swing.JFrame {
         criterio = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         JBetiquetas = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        JBback = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -75,10 +75,10 @@ public class Fsearch extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Volver al menu");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        JBback.setText("Volver al menu");
+        JBback.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                JBbackActionPerformed(evt);
             }
         });
 
@@ -96,7 +96,7 @@ public class Fsearch extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(69, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton1)
+                    .addComponent(JBback)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(JBpreguntas)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -120,7 +120,7 @@ public class Fsearch extends javax.swing.JFrame {
                     .addComponent(JBrespuestas)
                     .addComponent(JBetiquetas))
                 .addGap(36, 36, 36)
-                .addComponent(jButton1)
+                .addComponent(JBback)
                 .addGap(23, 23, 23))
         );
 
@@ -206,9 +206,9 @@ public class Fsearch extends javax.swing.JFrame {
      * y se vuelve al menu principal
      * @param evt 
      */
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void JBbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBbackActionPerformed
         dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_JBbackActionPerformed
 
     /**
      * @param args the command line arguments
@@ -246,11 +246,11 @@ public class Fsearch extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton JBback;
     private javax.swing.JButton JBetiquetas;
     private javax.swing.JButton JBpreguntas;
     private javax.swing.JButton JBrespuestas;
     private javax.swing.JTextField criterio;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
